@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Filmmaker's Ascent: Interactive Pathway</title>
+    <title data-lang-key="appTitle">The Filmmaker's Ascent: Interactive Pathway</title>
     <!-- Chosen Palette: Warm Neutrals -->
     <!-- Application Structure Plan: The SPA is structured as a "Filmmaker's Journey" with five main, non-linear stages accessible via top navigation: Foundation (Pre-Production), The Craft (Production), The Cut (Post-Production), The Launch (Growth), and The Library (Resources). This thematic, task-oriented structure was chosen over a linear report layout to enhance usability. It allows users to jump directly to the topic most relevant to their current learning need, fostering exploration and non-linear learning. Key interactions include a camera settings simulator, an interactive lighting-for-mood explorer, and a filterable resource database, all designed to transform passive reading into active engagement and practical application of the report's concepts. -->
     <!-- Visualization & Content Choices: 
@@ -29,77 +29,186 @@
         .resource-card { transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
         .resource-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
         .btn-filter.active { background-color: #a16207; color: white; }
+        .rtl { direction: rtl; text-align: right; }
+        .rtl .list-disc { list-style-position: inside; padding-right: 1.5em; padding-left: 0; }
+        .rtl .list-decimal { list-style-position: inside; padding-right: 1.5em; padding-left: 0; }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-800">
 
     <div class="container mx-auto p-4 md:p-8 max-w-7xl">
         <header class="text-center mb-8">
-            <h1 class="text-4xl md:text-5xl font-bold text-stone-900 mb-2">The Filmmaker's Ascent</h1>
-            <p class="text-lg text-stone-600">An Interactive Pathway to Cinematic & Advertising Mastery</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-stone-900 mb-2" data-lang-key="mainTitle">The Filmmaker's Ascent</h1>
+            <p class="text-lg text-stone-600" data-lang-key="mainSubtitle">An Interactive Pathway to Cinematic & Advertising Mastery</p>
+            <div class="mt-4">
+                <button id="lang-en" class="px-3 py-1 text-sm rounded-full border border-stone-300 bg-white text-stone-700 hover:bg-stone-100 mr-2">English</button>
+                <button id="lang-fa" class="px-3 py-1 text-sm rounded-full border border-stone-300 bg-white text-stone-700 hover:bg-stone-100">فارسی</button>
+            </div>
         </header>
 
         <nav class="flex justify-center border-b border-stone-200 mb-8">
-            <button class="nav-item nav-active py-4 px-4 md:px-6 text-sm md:text-base font-medium text-stone-500 hover:text-yellow-700 border-b-2 border-transparent" data-target="foundation">Foundation</button>
-            <button class="nav-item py-4 px-4 md:px-6 text-sm md:text-base font-medium text-stone-500 hover:text-yellow-700 border-b-2 border-transparent" data-target="craft">The Craft</button>
-            <button class="nav-item py-4 px-4 md:px-6 text-sm md:text-base font-medium text-stone-500 hover:text-yellow-700 border-b-2 border-transparent" data-target="cut">The Cut</button>
-            <button class="nav-item py-4 px-4 md:px-6 text-sm md:text-base font-medium text-stone-500 hover:text-yellow-700 border-b-2 border-transparent" data-target="launch">The Launch</button>
-            <button class="nav-item py-4 px-4 md:px-6 text-sm md:text-base font-medium text-stone-500 hover:text-yellow-700 border-b-2 border-transparent" data-target="library">The Library</button>
+            <button class="nav-item nav-active py-4 px-4 md:px-6 text-sm md:text-base font-medium text-stone-500 hover:text-yellow-700 border-b-2 border-transparent" data-target="foundation" data-lang-key="navFoundation">Foundation</button>
+            <button class="nav-item py-4 px-4 md:px-6 text-sm md:text-base font-medium text-stone-500 hover:text-yellow-700 border-b-2 border-transparent" data-target="craft" data-lang-key="navCraft">The Craft</button>
+            <button class="nav-item py-4 px-4 md:px-6 text-sm md:text-base font-medium text-stone-500 hover:text-yellow-700 border-b-2 border-transparent" data-target="cut" data-lang-key="navCut">The Cut</button>
+            <button class="nav-item py-4 px-4 md:px-6 text-sm md:text-base font-medium text-stone-500 hover:text-yellow-700 border-b-2 border-transparent" data-target="launch" data-lang-key="navLaunch">The Launch</button>
+            <button class="nav-item py-4 px-4 md:px-6 text-sm md:text-base font-medium text-stone-500 hover:text-yellow-700 border-b-2 border-transparent" data-target="library" data-lang-key="navLibrary">The Library</button>
         </nav>
 
         <main>
             <!-- Foundation Section -->
             <section id="foundation" class="content-section active space-y-12">
                 <div class="text-center max-w-3xl mx-auto">
-                    <h2 class="text-3xl font-bold mb-4 text-stone-900">I. Foundation: The Pillars of Visual Storytelling</h2>
-                    <p class="text-stone-600">This section covers the essential pre-production principles that form the bedrock of any great film or advertisement. Before you even touch your camera, understanding narrative, composition, and the basics of light and sound is crucial. Explore these interactive elements to build a strong theoretical foundation for your practical work.</p>
+                    <h2 class="text-3xl font-bold mb-4 text-stone-900" data-lang-key="foundationTitle">I. Foundation: The Pillars of Visual Storytelling</h2>
+                    <p class="text-stone-600" data-lang-key="foundationIntro">This section covers the essential pre-production principles that form the bedrock of any great film or advertisement. Before you even touch your camera, understanding narrative, composition, and the basics of light and sound is crucial. Explore these interactive elements to build a strong theoretical foundation for your practical work.</p>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 items-start">
                     <div>
-                        <h3 class="text-2xl font-semibold mb-4 text-stone-800">Crafting Compelling Narratives</h3>
-                        <p class="text-stone-600 mb-4">Filmmaking is storytelling. Every shot must serve the narrative. For short films and ads, focus on a singular idea with a clear setup, conflict, and resolution. A strong story, whether for art or commerce, connects emotionally with the audience and builds trust.</p>
-                        <p class="text-stone-600">Pre-production is your most powerful tool. A detailed script, storyboard, and location scout will prevent costly mistakes later. The goal is to get it right in-camera, not "fix it in post."</p>
+                        <h3 class="text-2xl font-semibold mb-4 text-stone-800" data-lang-key="narrativeTitle">Crafting Compelling Narratives</h3>
+                        <p class="text-stone-600 mb-4" data-lang-key="narrativePara1">Filmmaking is storytelling. Every shot must serve the narrative, revealing character depth and evoking specific emotions. For short films and ads, focus on a singular idea with a clear setup, conflict, and resolution. A strong story, whether for art or commerce, connects emotionally with the audience and builds trust, making the message more impactful and memorable.</p>
+                        <p class="text-stone-600 mb-4" data-lang-key="narrativePara2">Pre-production is your most powerful tool. A detailed script, storyboard, and location scout will prevent costly mistakes later. The goal is to get it right in-camera, not "fix it in post." This proactive approach, anticipating challenges like light behavior or acoustic issues, distinguishes a high-level filmmaker.</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
-                        <h4 class="text-xl font-semibold mb-3">The Pre-Production Workflow</h4>
+                        <h4 class="text-xl font-semibold mb-3" data-lang-key="workflowTitle">The Pre-Production Workflow</h4>
                         <ol class="list-decimal list-inside space-y-2 text-stone-600">
-                            <li><strong>Concept & Purpose:</strong> Define your core message and target audience.</li>
-                            <li><strong>Scriptwriting:</strong> Detail dialogue, actions, and visual cues.</li>
-                            <li><strong>Storyboarding:</strong> Visualize each shot, angle, and movement.</li>
-                            <li><strong>Location Scouting:</strong> Find and secure locations, checking for light and sound issues.</li>
-                            <li><strong>Gear Preparation:</strong> Check all camera, lighting, and audio equipment.</li>
+                            <li data-lang-key="workflowStep1"><strong>Concept & Purpose:</strong> Define your core message and target audience. Tailor messaging to their needs and desires.</li>
+                            <li data-lang-key="workflowStep2"><strong>Scriptwriting:</strong> Meticulously detail dialogue, voice-over, on-screen text, and visual descriptions. For ads, frame around a problem-solution narrative.</li>
+                            <li data-lang-key="workflowStep3"><strong>Storyboarding:</strong> Visualize each shot, camera angle, and movement. This visual roadmap ensures cohesive narrative flow and minimizes on-set mistakes.</li>
+                            <li data-lang-key="workflowStep4"><strong>Location Scouting:</strong> Find and secure locations, meticulously checking for light and sound issues that could impact the shoot.</li>
+                            <li data-lang-key="workflowStep5"><strong>Gear Preparation:</strong> Thoroughly check all camera, lighting, and audio equipment to ensure readiness and prevent technical delays.</li>
                         </ol>
                     </div>
                 </div>
                 <div class="space-y-6">
-                    <h3 class="text-2xl font-semibold mb-4 text-center text-stone-800">Mastering the Frame: Composition</h3>
+                    <h3 class="text-2xl font-semibold mb-4 text-center text-stone-800" data-lang-key="compositionTitle">Mastering the Frame: Composition & Camera Angles</h3>
+                    <p class="text-stone-600 text-center max-w-2xl mx-auto" data-lang-key="compositionIntro">Composition is the deliberate arrangement of all elements within the camera frame to create meaningful relationships between subjects, achieving a balanced and aesthetically pleasing visual whole. Every compositional choice directly influences the narrative and evokes specific feelings.</p>
                     <div class="grid md:grid-cols-3 gap-6">
                         <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
-                            <h4 class="font-semibold text-lg mb-2">Rule of Thirds</h4>
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="ruleOfThirdsTitle">Rule of Thirds</h4>
                             <div class="w-full aspect-video bg-stone-100 grid grid-cols-3 grid-rows-3 gap-1 mb-3 rounded">
                                 <div class="border-r border-dashed border-stone-400"></div><div class="border-r border-dashed border-stone-400"></div><div></div>
                                 <div class="border-r border-dashed border-stone-400 border-t"></div><div class="border-r border-dashed border-stone-400 border-t"></div><div class="border-t border-dashed border-stone-400"></div>
                                 <div class="border-r border-dashed border-stone-400 border-t"></div><div class="border-r border-dashed border-stone-400 border-t"></div><div class="border-t border-dashed border-stone-400"></div>
                                 <div class="absolute top-1/3 left-1/3 w-6 h-6 bg-yellow-500 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
                             </div>
-                            <p class="text-stone-600 text-sm">Place key subjects at the intersections of a 3x3 grid for a more balanced and dynamic composition.</p>
+                            <p class="text-stone-600 text-sm" data-lang-key="ruleOfThirdsDesc">Place key subjects at the intersections of a 3x3 grid for a more balanced and dynamic composition. Intentionally breaking this rule can also be a powerful artistic choice to create tension or direct focus.</p>
                         </div>
                         <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
-                            <h4 class="font-semibold text-lg mb-2">Leading Lines</h4>
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="leadingLinesTitle">Leading Lines</h4>
                             <div class="w-full aspect-video bg-stone-100 relative overflow-hidden mb-3 rounded">
                                 <div class="absolute w-full h-1 bg-yellow-500 top-1/2 -translate-y-1/2" style="clip-path: polygon(0 0, 100% 40%, 100% 60%, 0 100%);"></div>
                                 <div class="absolute w-1 h-full bg-yellow-500 left-1/4" style="clip-path: polygon(40% 0, 60% 0, 100% 100%, 0% 100%);"></div>
                             </div>
-                            <p class="text-stone-600 text-sm">Use natural lines in the scene (roads, fences, rivers) to guide the viewer's eye towards the subject.</p>
+                            <p class="text-stone-600 text-sm" data-lang-key="leadingLinesDesc">Use natural lines in the scene (roads, fences, rivers) to guide the viewer's eye towards the subject, conveying essential context and drawing attention to key points.</p>
                         </div>
                         <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
-                            <h4 class="font-semibold text-lg mb-2">Depth & Perspective</h4>
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="depthPerspectiveTitle">Depth & Perspective</h4>
                             <div class="w-full aspect-video bg-stone-100 relative mb-3 rounded p-4">
                                <div class="absolute bottom-4 left-4 w-12 h-12 bg-yellow-500 opacity-90 rounded"></div>
                                <div class="absolute top-1/2 left-1/2 w-8 h-8 bg-yellow-500 opacity-70 rounded -translate-x-1/2 -translate-y-1/2"></div>
                                <div class="absolute top-4 right-4 w-4 h-4 bg-yellow-500 opacity-50 rounded"></div>
                             </div>
-                            <p class="text-stone-600 text-sm">Incorporate foreground, midground, and background elements to create a sense of three-dimensional space.</p>
+                            <p class="text-stone-600 text-sm" data-lang-key="depthPerspectiveDesc">Incorporate foreground, midground, and background elements to create a sense of three-dimensional space, adding visual interest and realism. Every shot should have a clear subject or focal point.</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="shotTypesTitle">Shot Types & Camera Angles</h4>
+                            <ul class="list-disc list-inside space-y-1 text-stone-600 text-sm">
+                                <li data-lang-key="shotType1">**Wide shots:** Establish setting/location.</li>
+                                <li data-lang-key="shotType2">**Medium shots:** Balance character emotion and environment.</li>
+                                <li data-lang-key="shotType3">**Close-ups:** Convey intense emotion or highlight crucial details.</li>
+                                <li data-lang-key="shotType4">**Eye-level shots:** Foster empathy, viewer feels present.</li>
+                                <li data-lang-key="shotType5">**Low Angle shots:** Make subjects appear powerful or imposing.</li>
+                                <li data-lang-key="shotType6">**High Angle shots:** Make subjects look weak or diminutive.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="cameraMovementTitle">Intentional Camera Movement</h4>
+                            <ul class="list-disc list-inside space-y-1 text-stone-600 text-sm">
+                                <li data-lang-key="cameraMovement1">**Panning:** Horizontal movement.</li>
+                                <li data-lang-key="cameraMovement2">**Tilting:** Vertical movement.</li>
+                                <li data-lang-key="cameraMovement3">**Tracking:** Moving camera alongside subject.</li>
+                                <li data-lang-key="cameraMovement4">**Dolly shots:** Smooth horizontal movements.</li>
+                                <li data-lang-key="cameraMovement5">Keep movements slow and avoid excessive zooming to maintain focus on the subject.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-center text-stone-800" data-lang-key="lightingTitle">Sculpting with Light: Exposure & Cinematic Illumination</h3>
+                    <p class="text-stone-600 text-center max-w-2xl mx-auto" data-lang-key="lightingIntro">Lighting is the most critical factor in filmmaking, influencing both practical visibility and the overall aesthetic mood. A high-level understanding involves knowing how to make intentional choices about light quality and direction to achieve a desired aesthetic, transforming light into a primary tool for artistic expression.</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="naturalLightTitle">Harnessing Natural Light</h4>
+                            <ul class="list-disc list-inside space-y-1 text-stone-600 text-sm">
+                                <li data-lang-key="naturalLight1">**Diffused Light:** Position subject in shade or use diffusers to soften direct sunlight, creating a soft, wrapping quality.</li>
+                                <li data-lang-key="naturalLight2">**Reflected Light:** Use bounce boards or reflectors (white sheets, walls, mirrors) to redirect sunlight, filling shadows and adding "lift."</li>
+                                <li data-lang-key="naturalLight3">**Golden Hour:** Shoot just after sunrise or before sunset for a naturally warm, soft glow.</li>
+                                <li data-lang-key="naturalLight4">**Backlighting:** Film into the sun (sun behind subject) for beautiful rim light, sun flares, and to prevent squinting.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="threePointTitle">The Foundation: Three-Point Lighting</h4>
+                            <ul class="list-disc list-inside space-y-1 text-stone-600 text-sm">
+                                <li data-lang-key="threePoint1">**Key Light:** Primary, brightest source (45° to subject), establishes overall exposure and main shadows.</li>
+                                <li data-lang-key="threePoint2">**Fill Light:** Secondary, softer light (opposite key), fills in shadows, less bright than key.</li>
+                                <li data-lang-key="threePoint3">**Backlight (Rim/Hair Light):** Behind subject, separates them from background, adds depth.</li>
+                                <li data-lang-key="threePoint4">Start in darkness, adjust each light for balance and desired style.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200 mt-6">
+                        <h4 class="font-semibold text-lg mb-3" data-lang-key="advancedLightingTitle">Advanced Cinematic Lighting Setups for Mood and Drama</h4>
+                        <ul class="list-disc list-inside space-y-2 text-stone-600 text-sm">
+                            <li data-lang-key="advancedLighting1">**Soft Film Lighting:** Large light sources or diffusion materials to soften shadows, ideal for close-ups and "high key" looks.</li>
+                            <li data-lang-key="advancedLighting2">**Hard Film Lighting:** Smaller, intense light sources to heighten shadows, used for dramatic effects (e.g., Film Noir).</li>
+                            <li data-lang-key="advancedLighting3">**Kicker Light with Soft Fill:** Backlight creating an angelic rim, complemented by soft fill for gentle face illumination.</li>
+                            <li data-lang-key="advancedLighting4">**Low Key Lighting:** Minimizing/eliminating fill light to create deep, dramatic shadows, evoking mystery or suspense.</li>
+                            <li data-lang-key="advancedLighting5">**Motivated Lighting:** Enhancing existing practical lights (lamps, windows) to appear natural and purposeful.</li>
+                            <li data-lang-key="advancedLighting6">**Color Temperature (Kelvin):** Warm (3200K) for cozy, neutral (4500K) for balanced, cool (5600K) for crisp/dramatic.</li>
+                            <li data-lang-key="advancedLighting7">**Directional Lighting:** Side lighting for depth, front lighting for evenness, backlighting for separation/drama.</li>
+                            <li data-lang-key="advancedLighting8">**Common Mistakes to Avoid:** Mixing color temperatures, overexposure, flat lighting when drama is desired, lack of subject separation.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-center text-stone-800" data-lang-key="audioTitle">The Unseen Power: Professional Audio Recording</h3>
+                    <p class="text-stone-600 text-center max-w-2xl mx-auto" data-lang-key="audioIntro">Audio quality is as important as video quality; poor sound can undermine a stunning production. A high-level filmmaker recognizes audio not as an afterthought, but as a primary component demanding meticulous attention from the very beginning.</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="audioBestPracticesTitle">On-Set Audio Best Practices</h4>
+                            <ul class="list-disc list-inside space-y-1 text-stone-600 text-sm">
+                                <li data-lang-key="audioBestPractices1">**Environment Control:** Pay attention to ambient noise (fans, traffic, AC) and echoes. Use quiet locations or soundproofing.</li>
+                                <li data-lang-key="audioBestPractices2">**Microphone Placement:** Position mic as close as possible to sound source (15-30 cm from mouth, slightly off-axis for vocals).</li>
+                                <li data-lang-key="audioBestPractices3">**Accessories:** Use a pop filter for plosives and a wind sock ("dead cat") for outdoor wind noise.</li>
+                                <li data-lang-key="audioBestPractices4">**Monitoring:** Always use sound-muffling headphones to monitor audio levels in real-time.</li>
+                                <li data-lang-key="audioBestPractices5">**Technical Settings:** Record at minimum 24-bit, preferably 32-bit float, for wider dynamic range and recovery.</li>
+                                <li data-lang-key="audioBestPractices6">**Preparation:** Check batteries, ensure storage, turn off all cell phones (not just silence) to prevent RF interference.</li>
+                                <li data-lang-key="audioBestPractices7">**Room Tone:** Record 30-60 seconds of ambient sound for every scene to fill gaps in editing.</li>
+                                <li data-lang-key="audioBestPractices8">**Multiple Takes:** Capture multiple takes for crucial options during editing.</li>
+                                <li data-lang-key="audioBestPractices9">**Syncing:** Use a clapboard at start of each take for easy audio/visual alignment in post. Maintain consistent naming.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="gainStagingTitle">Achieving Pristine Sound: Gain Staging</h4>
+                            <p class="text-stone-600 text-sm mb-2" data-lang-key="gainStagingDesc">Gain staging is managing volume levels at each stage to ensure optimal sound quality without distortion or noise.</p>
+                            <ul class="list-disc list-inside space-y-1 text-stone-600 text-sm">
+                                <li data-lang-key="gainStaging1">Aim for average levels around -18 dBFS, with peaks not exceeding -6 dBFS to prevent clipping and maintain headroom.</li>
+                                <li data-lang-key="gainStaging2">Avoid recording "hot" (too loudly), as clipped audio is nearly impossible to repair.</li>
+                                <li data-lang-key="gainStaging3">Avoid recording too low, as it amplifies the "noise floor" when levels are raised.</li>
+                                <li data-lang-key="gainStaging4">Use "pad switches" for loud sources to prevent preamp overload.</li>
+                                <li data-lang-key="gainStaging5">Adjust gain between takes for consistent levels.</li>
+                            </ul>
+                            <h4 class="font-semibold text-lg mt-4 mb-2" data-lang-key="audioProblemsTitle">Common Audio Problems & Solutions</h4>
+                            <ul class="list-disc list-inside space-y-1 text-stone-600 text-sm">
+                                <li data-lang-key="audioProblem1">**Background Noise:** Prevent on set; use noise reduction plugins or EQ in post.</li>
+                                <li data-lang-key="audioProblem2">**Echoes:** Prevent by choosing small rooms with soft surfaces or soundproofing.</li>
+                                <li data-lang-key="audioProblem3">**Inconsistent Levels:** Prevent with consistent monitoring; use compression/limiting in post.</li>
+                                <li data-lang-key="audioProblem4">**Clipped Audio:** Almost impossible to fix; requires re-recording.</li>
+                                <li data-lang-key="audioProblem5">**Cutoff Audio:** Prevent by ensuring sufficient recording time; usually requires re-recording.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -108,30 +217,85 @@
             <!-- The Craft Section -->
             <section id="craft" class="content-section space-y-12">
                  <div class="text-center max-w-3xl mx-auto">
-                    <h2 class="text-3xl font-bold mb-4 text-stone-900">II. The Craft: Mastering Your Gear</h2>
-                    <p class="text-stone-600">This is the production phase, where theory meets practice. Here, we delve into the technical settings of your Sony A7C II and 50mm lens. Use the interactive tools below to understand how different settings create specific looks, how lighting shapes mood, and how to choose the right microphone for clear audio.</p>
+                    <h2 class="text-3xl font-bold mb-4 text-stone-900" data-lang-key="craftTitle">II. The Craft: Mastering Your Gear</h2>
+                    <p class="text-stone-600" data-lang-key="craftIntro">This is the production phase, where theory meets practice. Here, we delve into the technical settings of your Sony A7C II and 50mm lens. Use the interactive tools below to understand how different settings create specific looks, how lighting shapes mood, and how to choose the right microphone for clear audio.</p>
                 </div>
                 
                 <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-stone-200">
-                    <h3 class="text-2xl font-semibold mb-6 text-center text-stone-800">Sony A7C II: Interactive Settings Simulator</h3>
+                    <h3 class="text-2xl font-semibold mb-6 text-center text-stone-800" data-lang-key="sonySettingsTitle">Sony A7C II: Interactive Settings Simulator</h3>
+                    <p class="text-stone-600 text-center max-w-2xl mx-auto mb-6" data-lang-key="sonySettingsIntro">Optimal camera settings are not merely technical specifications but creative choices that profoundly impact the visual aesthetics of the footage. This simulator helps you understand recommended settings for common scenarios.</p>
                     <div class="grid md:grid-cols-2 gap-8 items-center">
                         <div>
-                             <label for="scenario-select" class="block text-sm font-medium text-stone-700 mb-2">Select a Shooting Scenario:</label>
+                             <label for="scenario-select" class="block text-sm font-medium text-stone-700 mb-2" data-lang-key="scenarioSelectLabel">Select a Shooting Scenario:</label>
                              <select id="scenario-select" class="w-full p-2 border border-stone-300 rounded-md bg-white focus:ring-yellow-500 focus:border-yellow-500">
-                                 <option value="cinematic">Cinematic Look (24p)</option>
-                                 <option value="smooth">Smooth Motion (60p)</option>
-                                 <option value="slowmo">Slow Motion (120p)</option>
+                                 <option value="cinematic" data-lang-key="scenarioCinematic">Cinematic Look (24p)</option>
+                                 <option value="smooth" data-lang-key="scenarioSmooth">Smooth Motion (60p)</option>
+                                 <option value="slowmo" data-lang-key="scenarioSlowmo">Slow Motion (120p)</option>
                              </select>
-                             <p class="text-xs text-stone-500 mt-2">Choose a common scenario to see the recommended camera settings. This tool helps translate the technical data from the report into a practical, easy-to-use format.</p>
+                             <p class="text-xs text-stone-500 mt-2" data-lang-key="scenarioHint">Choose a common scenario to see the recommended camera settings. This tool helps translate the technical data from the report into a practical, easy-to-use format.</p>
                         </div>
                         <div id="settings-display" class="bg-stone-800 text-white p-6 rounded-lg grid grid-cols-2 gap-4">
                             <!-- JS will populate this -->
                         </div>
                     </div>
+                    <div class="mt-8">
+                        <h4 class="text-xl font-semibold mb-3 text-stone-800" data-lang-key="videoSettingsUnderstandingTitle">Understanding Key Video Settings</h4>
+                        <ul class="list-disc list-inside space-y-2 text-stone-600 text-sm">
+                            <li data-lang-key="videoSetting1">**Resolution:** Sony A7C II supports 4K (3840x2160) up to 60p/50p for impressive quality. Starting with HD (1920x1080) can simplify workflow for beginners due to smaller file sizes.</li>
+                            <li data-lang-key="videoSetting2">**Frame Rate:** 24p for cinematic look; 30p/60p for smoother motion (60p allows 2x slow-motion); 120p for very smooth slow-motion (5x slower at 24p export).</li>
+                            <li data-lang-key="videoSetting3">**Shutter Speed:** Follows the "180-degree rule" (1/(2 x frame rate)) for natural motion blur (e.g., 1/50 sec for 24p). Adjust for flickering light indoors.</li>
+                            <li data-lang-key="videoSetting4">**ISO:** Keep as low as possible (e.g., ISO 100 or ISO 800 for S-Log3) to minimize image noise. A7C II has native range ISO 100-51200.</li>
+                            <li data-lang-key="videoSetting5">**White Balance:** Manual setting (Kelvin) is crucial for consistent and accurate colors, especially when mixing light sources, over Auto White Balance.</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-stone-200">
-                    <h3 class="text-2xl font-semibold mb-6 text-center text-stone-800">Sculpting with Light: Mood Creator</h3>
+                    <h3 class="text-2xl font-semibold mb-6 text-center text-stone-800" data-lang-key="lensesAndProfilesTitle">Maximizing Your Lenses & Picture Profiles</h3>
+                    <p class="text-stone-600 text-center max-w-2xl mx-auto mb-6" data-lang-key="lensesAndProfilesIntro">Beyond the 50mm f1.8, understanding various lenses and picture profiles is key to expanding your creative toolkit and achieving diverse cinematic looks.</p>
+                    <div class="grid md:grid-cols-2 gap-8 items-start">
+                        <div>
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="fiftyMmLensTitle">Your 50mm f1.8 Lens: Aperture, DoF, and Bokeh</h4>
+                            <p class="text-stone-600 text-sm mb-4" data-lang-key="fiftyMmLensDesc1">The 50mm f1.8 lens is exceptional for achieving a cinematic aesthetic. Its wide f1.8 aperture allows significant light gathering for low-light conditions and, more importantly, precise control over depth of field.</p>
+                            <p class="text-stone-600 text-sm mb-4" data-lang-key="fiftyMmLensDesc2">A wider aperture (lower f-number like f1.8) creates a **shallower depth of field**, blurring the background and isolating the subject – a highly prized cinematic effect. This lens is renowned for its creamy, smooth **bokeh** (the aesthetic quality of the blur in out-of-focus areas).</p>
+                            <p class="text-stone-600 text-sm" data-lang-key="fiftyMmLensDesc3">When shooting outdoors in bright daylight with a wide aperture, footage will be overexposed. **Neutral Density (ND) filters** are essential here. They act like sunglasses for the lens, reducing light without affecting color, allowing you to maintain shallow depth of field even in bright conditions.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="otherLensesTitle">Exploring Other Lenses</h4>
+                            <ul class="list-disc list-inside space-y-2 text-stone-600 text-sm">
+                                <li data-lang-key="otherLens1">**Wide-Angle Lenses (e.g., 16-35mm):** Ideal for establishing shots, landscapes, and tight interior spaces. They emphasize perspective and can create a sense of grandeur or vastness.</li>
+                                <li data-lang-key="otherLens2">**Telephoto Lenses (e.g., 70-200mm):** Great for compressing perspective, isolating subjects from a distance, and creating dramatic close-ups. Useful for wildlife, sports, or capturing intimate moments without being intrusive.</li>
+                                <li data-lang-key="otherLens3">**Zoom Lenses:** Offer versatility by covering a range of focal lengths, reducing the need to swap lenses frequently. Convenient for run-and-gun shooting but often have smaller maximum apertures than primes.</li>
+                                <li data-lang-key="otherLens4">**Prime Lenses (fixed focal length):** Like your 50mm, they typically offer wider apertures, superior image quality, and better low-light performance compared to zoom lenses. Encourage more thoughtful composition.</li>
+                                <li data-lang-key="otherLens5">**Anamorphic Lenses:** Create a unique, widescreen cinematic look with oval bokeh and horizontal lens flares.</li>
+                                <li data-lang-key="otherLens6">**Macro Lenses:** Designed for extreme close-up photography, revealing intricate details of small subjects.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="font-semibold text-lg mb-2" data-lang-key="otherCamerasTitle">Other Camera Bodies to Consider</h4>
+                        <p class="text-stone-600 text-sm mb-4" data-lang-key="otherCamerasIntro">While your Sony A7C II is an excellent starting point, exploring other camera bodies can broaden your understanding of different ecosystems and specialized capabilities.</p>
+                        <ul class="list-disc list-inside space-y-2 text-stone-600 text-sm">
+                            <li data-lang-key="otherCamera1">**Blackmagic Pocket Cinema Camera (BMPCC) Series:** Renowned for their cinematic image quality, dynamic range, and ability to record in Blackmagic RAW or ProRes formats. Excellent for filmmakers prioritizing image fidelity and extensive post-production flexibility.</li>
+                            <li data-lang-key="otherCamera2">**Canon EOS R Series (e.g., R5, R6 Mark II):** Known for their excellent color science, user-friendly interfaces, and industry-leading autofocus systems. A strong choice for hybrid shooters (stills and video) and those who value reliable performance.</li>
+                        </ul>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="font-semibold text-lg mb-2" data-lang-key="pictureProfilesTitle">Picture Profiles & Color Grading</h4>
+                        <p class="text-stone-600 text-sm mb-4" data-lang-key="pictureProfilesDesc">Sony A7C II offers various Picture Profiles (PPs) that significantly impact the final look and color grading flexibility:</p>
+                        <ul class="list-disc list-inside space-y-2 text-stone-600 text-sm">
+                            <li data-lang-key="pictureProfile1">**S-Cinetone (PP11):** Delivers a cinematic look directly out of the camera with natural mid-tones, healthy skin tones, and soft colors, requiring minimal post-production. Excellent for quick turnarounds.</li>
+                            <li data-lang-key="pictureProfile2">**S-Log (S-Log2/S-Log3, PP7/PP8/PP9):** Log gamma curves designed to capture a much wider dynamic range (14+ stops for S-Log3). Footage appears flat and low-contrast, retaining maximum image information for extensive manipulation in professional color grading. S-Log3 is preferred for maximum flexibility.</li>
+                            <li data-lang-key="pictureProfile3">**Understanding LUTs (Look Up Tables):** When shooting in S-Log, LUTs are necessary in post-production to convert flat Log footage into standard color spaces (e.g., Rec. 709) and apply creative looks.</li>
+                            <li data-lang-key="pictureProfile4">**Gamma Display Assist:** A7C II's function to apply a custom LUT to the monitor image while recording in Log, providing a real-time preview of graded footage for on-set adjustments.</li>
+                            <li data-lang-key="pictureProfile5">**10-bit 4:2:2 Recording:** Provides significantly more color information for smoother, natural gradations during editing and color grading, especially with Log profiles, leading to a more refined final product.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-stone-200">
+                    <h3 class="text-2xl font-semibold mb-6 text-center text-stone-800" data-lang-key="moodCreatorTitle">Sculpting with Light: Mood Creator</h3>
+                    <p class="text-center text-stone-600 max-w-2xl mx-auto mb-6" data-lang-key="moodCreatorIntro">The color temperature, intensity, and direction of light are all deliberate choices used to evoke specific emotions. This interactive tool helps you visualize how different lighting techniques create distinct moods.</p>
                     <div id="lighting-moods" class="flex justify-center flex-wrap gap-2 mb-6">
                         <!-- JS will populate mood buttons -->
                     </div>
@@ -141,8 +305,8 @@
                 </div>
                 
                 <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-stone-200">
-                    <h3 class="text-2xl font-semibold mb-6 text-center text-stone-800">Audio Essentials: Microphone Comparison</h3>
-                    <p class="text-center text-stone-600 max-w-2xl mx-auto mb-6">Audio quality is non-negotiable. Poor sound will ruin great visuals. This chart compares the core characteristics of common microphone types to help you choose the right tool for the job.</p>
+                    <h3 class="text-2xl font-semibold mb-6 text-center text-stone-800" data-lang-key="micComparisonTitle">Audio Essentials: Microphone Comparison</h3>
+                    <p class="text-center text-stone-600 max-w-2xl mx-auto mb-6" data-lang-key="micComparisonIntro">Audio quality is non-negotiable. Poor sound will ruin great visuals. This chart compares the core characteristics of common microphone types to help you choose the right tool for the job.</p>
                     <div class="chart-container">
                         <canvas id="micChart"></canvas>
                     </div>
@@ -152,102 +316,158 @@
             <!-- The Cut Section -->
             <section id="cut" class="content-section space-y-12">
                  <div class="text-center max-w-3xl mx-auto">
-                    <h2 class="text-3xl font-bold mb-4 text-stone-900">III. The Cut: Post-Production Mastery</h2>
-                    <p class="text-stone-600">Editing is where your story truly comes to life. This phase involves assembling your footage, correcting color, designing sound, and adding graphics. The workflow below outlines the key steps, and the software comparison will help you choose the right free tools to get started.</p>
+                    <h2 class="text-3xl font-bold mb-4 text-stone-900" data-lang-key="cutTitle">III. The Cut: Post-Production Mastery</h2>
+                    <p class="text-stone-600" data-lang-key="cutIntro">Editing is where your story truly comes to life. This phase involves assembling your footage, correcting color, designing sound, and adding graphics. The workflow below outlines the key steps, and the software comparison will help you choose the right free tools to get started.</p>
                 </div>
                  <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-stone-200">
-                    <h3 class="text-2xl font-semibold mb-6 text-center text-stone-800">The Post-Production Workflow</h3>
+                    <h3 class="text-2xl font-semibold mb-6 text-center text-stone-800" data-lang-key="postProductionWorkflowTitle">The Post-Production Workflow</h3>
+                    <p class="text-stone-600 text-center max-w-2xl mx-auto mb-6" data-lang-key="postProductionWorkflowIntro">A structured post-production workflow is essential for efficiency and quality control, transforming raw footage into a polished, compelling narrative.</p>
                     <div class="relative w-full overflow-x-auto">
                         <div class="flex items-center justify-between min-w-[700px]">
                             <div class="text-center w-1/5">
-                                <div class="bg-yellow-400 text-yellow-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-2xl">1</div>
-                                <h4 class="font-semibold">Organize</h4>
-                                <p class="text-xs text-stone-500">Import & sort footage</p>
+                                <div class="bg-yellow-400 text-yellow-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-2xl" data-lang-key="workflowStep1Num">1</div>
+                                <h4 class="font-semibold" data-lang-key="workflowStep1Header">Organize</h4>
+                                <p class="text-xs text-stone-500" data-lang-key="workflowStep1Desc">Import all raw footage and organize it meticulously by scenes or takes.</p>
                             </div>
                             <div class="flex-1 h-0.5 bg-stone-300"></div>
                              <div class="text-center w-1/5">
-                                <div class="bg-yellow-400 text-yellow-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-2xl">2</div>
-                                <h4 class="font-semibold">Assemble</h4>
-                                <p class="text-xs text-stone-500">Create a rough cut</p>
+                                <div class="bg-yellow-400 text-yellow-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-2xl" data-lang-key="workflowStep2Num">2</div>
+                                <h4 class="font-semibold" data-lang-key="workflowStep2Header">Assemble</h4>
+                                <p class="text-xs text-stone-500" data-lang-key="workflowStep2Desc">Create a first draft (rough cut) by arranging selected shots in chronological order and trimming excess footage.</p>
                             </div>
                             <div class="flex-1 h-0.5 bg-stone-300"></div>
                             <div class="text-center w-1/5">
-                                <div class="bg-yellow-400 text-yellow-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-2xl">3</div>
-                                <h4 class="font-semibold">Refine</h4>
-                                <p class="text-xs text-stone-500">Color, sound, graphics</p>
+                                <div class="bg-yellow-400 text-yellow-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-2xl" data-lang-key="workflowStep3Num">3</div>
+                                <h4 class="font-semibold" data-lang-key="workflowStep3Header">Refine</h4>
+                                <p class="text-xs text-stone-500" data-lang-key="workflowStep3Desc">Adjust color balance, eliminate background noise, add music/sound effects, and integrate visual effects/motion graphics.</p>
                             </div>
                             <div class="flex-1 h-0.5 bg-stone-300"></div>
                             <div class="text-center w-1/5">
-                                <div class="bg-yellow-400 text-yellow-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-2xl">4</div>
-                                <h4 class="font-semibold">Finalize</h4>
-                                <p class="text-xs text-stone-500">Transitions & captions</p>
+                                <div class="bg-yellow-400 text-yellow-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-2xl" data-lang-key="workflowStep4Num">4</div>
+                                <h4 class="font-semibold" data-lang-key="workflowStep4Header">Finalize</h4>
+                                <p class="text-xs text-stone-500" data-lang-key="workflowStep4Desc">Incorporate smooth transitions, add captions/subtitles for accessibility, and review on various devices.</p>
                             </div>
                              <div class="flex-1 h-0.5 bg-stone-300"></div>
                              <div class="text-center w-1/5">
-                                <div class="bg-yellow-400 text-yellow-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-2xl">5</div>
-                                <h4 class="font-semibold">Export</h4>
-                                <p class="text-xs text-stone-500">Review & deliver</p>
+                                <div class="bg-yellow-400 text-yellow-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-2xl" data-lang-key="workflowStep5Num">5</div>
+                                <h4 class="font-semibold" data-lang-key="workflowStep5Header">Export</h4>
+                                <p class="text-xs text-stone-500" data-lang-key="workflowStep5Desc">Conduct a final review, secure client approval, and store backup copies of the final video and raw project files.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="space-y-6">
-                    <h3 class="text-2xl font-semibold mb-4 text-center text-stone-800">Choosing Your Editing Software (Free Options)</h3>
+                    <h3 class="text-2xl font-semibold mb-4 text-center text-stone-800" data-lang-key="editingSoftwareTitle">Popular Editing Software Options</h3>
+                    <p class="text-stone-600 text-center max-w-2xl mx-auto" data-lang-key="editingSoftwareIntro">Mastery of editing involves a blend of technical precision and artistic sensibility. Here are key techniques and recommended software options, including both free and industry-standard tools.</p>
                      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                          <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
-                             <h4 class="font-semibold text-lg mb-2">DaVinci Resolve</h4>
-                             <p class="text-stone-600 text-sm">The industry standard for color grading, with powerful editing, audio (Fairlight), and VFX (Fusion) tools included for free. Steep learning curve but incredibly capable.</p>
-                             <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-medium mt-3 px-2.5 py-0.5 rounded-full">Best for Professionals</span>
+                             <h4 class="font-semibold text-lg mb-2" data-lang-key="davinciResolveTitle">DaVinci Resolve</h4>
+                             <p class="text-stone-600 text-sm" data-lang-key="davinciResolveDesc">The industry standard for color grading, with powerful editing, audio (Fairlight), and VFX (Fusion) tools included for free. Steep learning curve but incredibly capable.</p>
+                             <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-medium mt-3 px-2.5 py-0.5 rounded-full" data-lang-key="davinciResolveTag">Best for Professionals (Free Version)</span>
                          </div>
                          <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
-                             <h4 class="font-semibold text-lg mb-2">CapCut</h4>
-                             <p class="text-stone-600 text-sm">Extremely user-friendly and accessible, with a surprising number of advanced features. Great for quick edits, social media content, and learning the basics.</p>
-                             <span class="inline-block bg-green-100 text-green-800 text-xs font-medium mt-3 px-2.5 py-0.5 rounded-full">Best for Beginners</span>
+                             <h4 class="font-semibold text-lg mb-2" data-lang-key="capcutTitle">CapCut</h4>
+                             <p class="text-stone-600 text-sm" data-lang-key="capcutDesc">Extremely user-friendly and accessible, with a surprising number of advanced features. Great for quick edits, social media content, and learning the basics.</p>
+                             <span class="inline-block bg-green-100 text-green-800 text-xs font-medium mt-3 px-2.5 py-0.5 rounded-full" data-lang-key="capcutTag">Best for Beginners (Free)</span>
                          </div>
                          <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
-                             <h4 class="font-semibold text-lg mb-2">Kdenlive</h4>
-                             <p class="text-stone-600 text-sm">A free, open-source, and cross-platform editor that is feature-rich. A good middle ground between simplicity and professional power.</p>
-                             <span class="inline-block bg-blue-100 text-blue-800 text-xs font-medium mt-3 px-2.5 py-0.5 rounded-full">Best for Hobbyists</span>
+                             <h4 class="font-semibold text-lg mb-2" data-lang-key="kdenliveTitle">Kdenlive</h4>
+                             <p class="text-stone-600 text-sm" data-lang-key="kdenliveDesc">A free, open-source, and cross-platform editor that is feature-rich. A good middle ground between simplicity and professional power.</p>
+                             <span class="inline-block bg-blue-100 text-blue-800 text-xs font-medium mt-3 px-2.5 py-0.5 rounded-full" data-lang-key="kdenliveTag">Best for Hobbyists (Free)</span>
                          </div>
+                         <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="premiereProTitle">Adobe Premiere Pro</h4>
+                            <p class="text-stone-600 text-sm" data-lang-key="premiereProDesc">An industry-leading professional video editing software. Offers deep integration with other Adobe Creative Cloud apps. Powerful for complex projects, but subscription-based.</p>
+                            <span class="inline-block bg-red-100 text-red-800 text-xs font-medium mt-3 px-2.5 py-0.5 rounded-full" data-lang-key="premiereProTag">Industry Standard (Subscription)</span>
+                        </div>
+                         <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="cuttingTrimmingTitle">Cutting & Trimming</h4>
+                            <p class="text-stone-600 text-sm" data-lang-key="cuttingTrimmingDesc">Fundamental techniques to remove unwanted parts of clips and adjust their length to refine pacing and narrative. Seamless cuts are crucial for audience engagement.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="colorCorrectionTitle">Color Correction & Grading</h4>
+                            <p class="text-stone-600 text-sm" data-lang-key="colorCorrectionDesc">Color correction fixes inconsistencies (e.g., white balance), while color grading applies a consistent aesthetic and mood. Applying LUTs is key when working with Log profiles.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="audioVfxTitle">Audio Enhancement & VFX</h4>
+                            <p class="text-stone-600 text-sm" data-lang-key="audioVfxDesc">Adjust audio levels, eliminate noise, and add music/sound effects. Integrate visual effects (VFX) and motion graphics thoughtfully to enhance the narrative without overwhelming the viewer.</p>
+                        </div>
                      </div>
                 </div>
 
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-center text-stone-800" data-lang-key="advancedEditingAdsTitle">Advanced Editing Concepts for Advertising</h3>
+                    <p class="text-stone-600 text-center max-w-2xl mx-auto" data-lang-key="advancedEditingAdsIntro">For advertising, editing takes on specific strategic importance to maximize impact and audience engagement.</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="pacingRhythmTitle">Pacing & Rhythm</h4>
+                            <p class="text-stone-600 text-sm" data-lang-key="pacingRhythmDesc">The pacing of an edit significantly influences the emotional impact. Strategic sequencing of shots creates a cohesive narrative and maintains audience interest, crucial for short-form ad content.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="optimizingPlatformsTitle">Optimizing for Platforms</h4>
+                            <p class="text-stone-600 text-sm" data-lang-key="optimizingPlatformsDesc">Videos must be tailored for their intended distribution platforms (e.g., short, engaging clips for social media; longer formats for YouTube). Consider different aspect ratios (vertical for mobile, horizontal for desktop).</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                            <h4 class="font-semibold text-lg mb-2" data-lang-key="brandStorytellingTitle">Brand Storytelling & Attention</h4>
+                            <p class="text-stone-600 text-sm" data-lang-key="brandStorytellingDesc">Leverage brand storytelling to evoke emotions and build loyalty, focusing on authentic, relatable narratives. Ads must grab attention immediately with a strong "hook" and offer valuable content tailored to the audience, culminating in a clear Call-to-Action (CTA).</p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- The Launch Section -->
             <section id="launch" class="content-section space-y-12">
                 <div class="text-center max-w-3xl mx-auto">
-                    <h2 class="text-3xl font-bold mb-4 text-stone-900">IV. The Launch: Distribution & Professional Growth</h2>
-                    <p class="text-stone-600">A great video is useless if no one sees it. This section focuses on getting your work in front of the right audience and building your professional brand. Learn how to distribute your content effectively and create a portfolio that attracts clients and collaborators.</p>
+                    <h2 class="text-3xl font-bold mb-4 text-stone-900" data-lang-key="launchTitle">IV. The Launch: Distribution & Professional Growth</h2>
+                    <p class="text-stone-600" data-lang-key="launchIntro">A great video is useless if no one sees it. This section focuses on getting your work in front of the right audience and building your professional brand. Learn how to distribute your content effectively and create a portfolio that attracts clients and collaborators.</p>
                 </div>
                  <div class="grid md:grid-cols-2 gap-8 items-start">
                     <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
-                        <h3 class="text-2xl font-semibold mb-4 text-stone-800">Building Your Presence</h3>
+                        <h3 class="text-2xl font-semibold mb-4 text-stone-800" data-lang-key="distributionPromotionTitle">Distribution and Promotion</h3>
                         <ul class="space-y-4">
                            <li>
-                               <h4 class="font-semibold">Portfolio First</h4>
-                               <p class="text-stone-600 text-sm">Showcase only your best work. Quality over quantity. Tell a story with your projects and demonstrate your unique style.</p>
+                               <h4 class="font-semibold" data-lang-key="platformSelectionTitle">Platform Selection & Formatting</h4>
+                               <p class="text-stone-600 text-sm" data-lang-key="platformSelectionDesc">Choose channels based on target audience (YouTube, Vimeo, social media, website). Encode videos into platform-specific formats, optimizing for resolution, aspect ratio, file size, and codec.</p>
                            </li>
                            <li>
-                               <h4 class="font-semibold">Professional Website</h4>
-                               <p class="text-stone-600 text-sm">Your digital storefront. It should be clean, fast, mobile-friendly, and feature a compelling demo reel on the homepage.</p>
+                               <h4 class="font-semibold" data-lang-key="metadataSeoTitle">Metadata & SEO Optimization</h4>
+                               <p class="text-stone-600 text-sm" data-lang-key="metadataSeoDesc">Craft compelling, keyword-rich titles and detailed descriptions. Use relevant tags and include captions/subtitles to improve discoverability and accessibility.</p>
                            </li>
                            <li>
-                               <h4 class="font-semibold">Strategic Social Media</h4>
-                               <p class="text-stone-600 text-sm">Use Instagram, YouTube, and especially LinkedIn to share behind-the-scenes content, engage with the community, and connect with decision-makers.</p>
+                               <h4 class="font-semibold" data-lang-key="publishingScheduleTitle">Publishing Schedule & Promotional Assets</h4>
+                               <p class="text-stone-600 text-sm" data-lang-key="publishingScheduleDesc">Align video releases with marketing campaigns. Design eye-catching thumbnails, short trailers/teasers, and optimized social graphics to generate excitement and drive engagement.</p>
+                           </li>
+                           <li>
+                               <h4 class="font-semibold" data-lang-key="performanceTrackingTitle">Performance Tracking & Analytics</h4>
+                               <p class="text-stone-600 text-sm" data-lang-key="performanceTrackingDesc">Continuously monitor key metrics like views, engagement rates (likes, comments, shares), and conversions. Use this data to refine future distribution strategies and optimize content.</p>
                            </li>
                         </ul>
                     </div>
                      <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
-                         <h3 class="text-2xl font-semibold mb-4 text-stone-800">Distribution Strategy</h3>
-                         <ol class="list-decimal list-inside space-y-2 text-stone-600">
-                             <li><strong>Platform Selection:</strong> Choose channels where your audience lives (YouTube, Vimeo, Instagram, etc.).</li>
-                             <li><strong>Formatting:</strong> Optimize resolution, aspect ratio, and file size for each platform.</li>
-                             <li><strong>Metadata (SEO):</strong> Craft keyword-rich titles, descriptions, and tags. Add captions!</li>
-                             <li><strong>Promotion:</strong> Create eye-catching thumbnails and short trailers to generate buzz.</li>
-                             <li><strong>Analytics:</strong> Track performance (views, engagement) to refine your future strategy.</li>
-                         </ol>
+                         <h3 class="text-2xl font-semibold mb-4 text-stone-800" data-lang-key="professionalPresenceTitle">Building Your Professional Presence & Networking</h3>
+                         <ul class="space-y-4">
+                            <li>
+                                <h4 class="font-semibold" data-lang-key="portfolioFirstTitle">Portfolio First</h4>
+                                <p class="text-stone-600 text-sm" data-lang-key="portfolioFirstDesc">Showcase only your best work. Quality over quantity. Tell a story with your projects and demonstrate your unique style, including impactful short films or standout scenes.</p>
+                            </li>
+                            <li>
+                                <h4 class="font-semibold" data-lang-key="professionalWebsiteTitle">Professional Website</h4>
+                                <p class="text-stone-600 text-sm" data-lang-key="professionalWebsiteDesc">Your digital storefront. It should be clean, fast, mobile-friendly, feature a compelling demo reel prominently, and clearly communicate your offerings and expertise.</p>
+                            </li>
+                            <li>
+                                <h4 class="font-semibold" data-lang-key="socialMediaTitle">Strategic Social Media</h4>
+                                <p class="text-stone-600 text-sm" data-lang-key="socialMediaDesc">Use Instagram, YouTube, and especially LinkedIn to share behind-the-scenes content, client testimonials, and completed projects. Engage with the community and connect with decision-makers.</p>
+                            </li>
+                            <li>
+                                <h4 class="font-semibold" data-lang-key="networkingCollaborationTitle">Networking & Collaboration</h4>
+                                <p class="text-stone-600 text-sm" data-lang-key="networkingCollaborationDesc">Attend industry events to make genuine connections. Join online groups (FILMD, Stage 32) to connect with creatives and find job leads. Collaborate with other professionals for referrals and new opportunities.</p>
+                            </li>
+                            <li>
+                                <h4 class="font-semibold" data-lang-key="clientOutreachTitle">Client Outreach Strategies</h4>
+                                <p class="text-stone-600 text-sm" data-lang-key="clientOutreachDesc">Employ cold outreach, leverage personal networks, publish helpful content, build an email list, frequent online spaces where target audiences gather, check job boards (UpWork, Freelancer), and run targeted paid ads.</p>
+                            </li>
+                         </ul>
                      </div>
                  </div>
             </section>
@@ -255,8 +475,8 @@
             <!-- Library Section -->
             <section id="library" class="content-section space-y-12">
                  <div class="text-center max-w-3xl mx-auto">
-                    <h2 class="text-3xl font-bold mb-4 text-stone-900">V. The Library: Curated Learning Resources</h2>
-                    <p class="text-stone-600">The journey to mastery is continuous. This library contains a curated list of the best free resources—from YouTube tutorials to online courses—mentioned in the original report. Use the filters to quickly find what you need to learn next.</p>
+                    <h2 class="text-3xl font-bold mb-4 text-stone-900" data-lang-key="libraryTitle">V. The Library: Curated Learning Resources</h2>
+                    <p class="text-stone-600" data-lang-key="libraryIntro">The journey to mastery is continuous. This library contains a curated list of the best free resources—from YouTube tutorials to online courses—mentioned in the original report. Use the filters to quickly find what you need to learn next.</p>
                 </div>
                 <div id="resource-filters" class="flex justify-center flex-wrap gap-2 mb-8">
                     <!-- JS will populate filters -->
@@ -271,35 +491,500 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
+    const translations = {
+        en: {
+            appTitle: "The Filmmaker's Ascent: Interactive Pathway",
+            mainTitle: "The Filmmaker's Ascent",
+            mainSubtitle: "An Interactive Pathway to Cinematic & Advertising Mastery",
+            navFoundation: "Foundation",
+            navCraft: "The Craft",
+            navCut: "The Cut",
+            navLaunch: "The Launch",
+            navLibrary: "The Library",
+            foundationTitle: "I. Foundation: The Pillars of Visual Storytelling",
+            foundationIntro: "This section covers the essential pre-production principles that form the bedrock of any great film or advertisement. Before you even touch your camera, understanding narrative, composition, and the basics of light and sound is crucial. Explore these interactive elements to build a strong theoretical foundation for your practical work.",
+            narrativeTitle: "Crafting Compelling Narratives",
+            narrativePara1: "Filmmaking is storytelling. Every shot must serve the narrative, revealing character depth and evoking specific emotions. For short films and ads, focus on a singular idea with a clear setup, conflict, and resolution. A strong story, whether for art or commerce, connects emotionally with the audience and builds trust, making the message more impactful and memorable.",
+            narrativePara2: "Pre-production is your most powerful tool. A detailed script, storyboard, and location scout will prevent costly mistakes later. The goal is to get it right in-camera, not 'fix it in post.' This proactive approach, anticipating challenges like light behavior or acoustic issues, distinguishes a high-level filmmaker.",
+            workflowTitle: "The Pre-Production Workflow",
+            workflowStep1: "<strong>Concept & Purpose:</strong> Define your core message and target audience. Tailor messaging to their needs and desires.",
+            workflowStep2: "<strong>Scriptwriting:</strong> Meticulously detail dialogue, voice-over, on-screen text, and visual descriptions. For ads, frame around a problem-solution narrative.",
+            workflowStep3: "<strong>Storyboarding:</strong> Visualize each shot, camera angle, and movement. This visual roadmap ensures cohesive narrative flow and minimizes on-set mistakes.",
+            workflowStep4: "<strong>Location Scouting:</strong> Find and secure locations, meticulously checking for light and sound issues that could impact the shoot.",
+            workflowStep5: "<strong>Gear Preparation:</strong> Thoroughly check all camera, lighting, and audio equipment to ensure readiness and prevent technical delays.",
+            compositionTitle: "Mastering the Frame: Composition & Camera Angles",
+            compositionIntro: "Composition is the deliberate arrangement of all elements within the camera frame to create meaningful relationships between subjects, achieving a balanced and aesthetically pleasing visual whole. Every compositional choice directly influences the narrative and evokes specific feelings.",
+            ruleOfThirdsTitle: "Rule of Thirds",
+            ruleOfThirdsDesc: "Place key subjects at the intersections of a 3x3 grid for a more balanced and dynamic composition. Intentionally breaking this rule can also be a powerful artistic choice to create tension or direct focus.",
+            leadingLinesTitle: "Leading Lines",
+            leadingLinesDesc: "Use natural lines in the scene (roads, fences, rivers) to guide the viewer's eye towards the subject, conveying essential context and drawing attention to key points.",
+            depthPerspectiveTitle: "Depth & Perspective",
+            depthPerspectiveDesc: "Incorporate foreground, midground, and background elements to create a sense of three-dimensional space, adding visual interest and realism. Every shot should have a clear subject or focal point.",
+            shotTypesTitle: "Shot Types & Camera Angles",
+            shotType1: "**Wide shots:** Establish setting/location.",
+            shotType2: "**Medium shots:** Balance character emotion and environment.",
+            shotType3: "**Close-ups:** Convey intense emotion or highlight crucial details.",
+            shotType4: "**Eye-level shots:** Foster empathy, viewer feels present.",
+            shotType5: "**Low Angle shots:** Make subjects appear powerful or imposing.",
+            shotType6: "**High Angle shots:** Make subjects look weak or diminutive.",
+            cameraMovementTitle: "Intentional Camera Movement",
+            cameraMovement1: "**Panning:** Horizontal movement.",
+            cameraMovement2: "**Tilting:** Vertical movement.",
+            cameraMovement3: "**Tracking:** Moving camera alongside subject.",
+            cameraMovement4: "**Dolly shots:** Smooth horizontal movements.",
+            cameraMovement5: "Keep movements slow and avoid excessive zooming to maintain focus on the subject.",
+            lightingTitle: "Sculpting with Light: Exposure & Cinematic Illumination",
+            lightingIntro: "Lighting is the most critical factor in filmmaking, influencing both practical visibility and the overall aesthetic mood. A high-level understanding involves knowing how to make intentional choices about light quality and direction to achieve a desired aesthetic, transforming light into a primary tool for artistic expression.",
+            naturalLightTitle: "Harnessing Natural Light",
+            naturalLight1: "**Diffused Light:** Position subject in shade or use diffusers to soften direct sunlight, creating a soft, wrapping quality.",
+            naturalLight2: "**Reflected Light:** Use bounce boards or reflectors (white sheets, walls, mirrors) to redirect sunlight, filling shadows and adding 'lift.'",
+            naturalLight3: "**Golden Hour:** Shoot just after sunrise or before sunset for a naturally warm, soft glow.",
+            naturalLight4: "**Backlighting:** Film into the sun (sun behind subject) for beautiful rim light, sun flares, and to prevent squinting.",
+            threePointTitle: "The Foundation: Three-Point Lighting",
+            threePoint1: "**Key Light:** Primary, brightest source (45° to subject), establishes overall exposure and main shadows.",
+            threePoint2: "**Fill Light:** Secondary, softer light (opposite key), fills in shadows, less bright than key.",
+            threePoint3: "**Backlight (Rim/Hair Light):** Behind subject, separates them from background, adds depth.",
+            threePoint4: "Start in darkness, adjust each light for balance and desired style.",
+            advancedLightingTitle: "Advanced Cinematic Lighting Setups for Mood and Drama",
+            advancedLighting1: "**Soft Film Lighting:** Large light sources or diffusion materials to soften shadows, ideal for close-ups and 'high key' looks.",
+            advancedLighting2: "**Hard Film Lighting:** Smaller, intense light sources to heighten shadows, used for dramatic effects (e.g., Film Noir).",
+            advancedLighting3: "**Kicker Light with Soft Fill:** Backlight creating an angelic rim, complemented by soft fill for gentle face illumination.",
+            advancedLighting4: "**Low Key Lighting:** Minimizing/eliminating fill light to create deep, dramatic shadows, evoking mystery or suspense.",
+            advancedLighting5: "**Motivated Lighting:** Enhancing existing practical lights (lamps, windows) to appear natural and purposeful.",
+            advancedLighting6: "**Color Temperature (Kelvin):** Warm (3200K) for cozy, neutral (4500K) for balanced, cool (5600K) for crisp/dramatic.",
+            advancedLighting7: "**Directional Lighting:** Side lighting for depth, front lighting for evenness, backlighting for separation/drama.",
+            advancedLighting8: "**Common Mistakes to Avoid:** Mixing color temperatures, overexposure, flat lighting when drama is desired, lack of subject separation.",
+            audioTitle: "The Unseen Power: Professional Audio Recording",
+            audioIntro: "Audio quality is as important as video quality; poor sound can undermine a stunning production. A high-level filmmaker recognizes audio not as an afterthought, but as a primary component demanding meticulous attention from the very beginning.",
+            audioBestPracticesTitle: "On-Set Audio Best Practices",
+            audioBestPractices1: "**Environment Control:** Pay attention to ambient noise (fans, traffic, AC) and echoes. Use quiet locations or soundproofing.",
+            audioBestPractices2: "**Microphone Placement:** Position mic as close as possible to sound source (15-30 cm from mouth, slightly off-axis for vocals).",
+            audioBestPractices3: "**Accessories:** Use a pop filter for plosives and a wind sock ('dead cat') for outdoor wind noise.",
+            audioBestPractices4: "**Monitoring:** Always use sound-muffling headphones to monitor audio levels in real-time.",
+            audioBestPractices5: "**Technical Settings:** Record at minimum 24-bit, preferably 32-bit float, for wider dynamic range and recovery.",
+            audioBestPractices6: "**Preparation:** Check batteries, ensure storage, turn off all cell phones (not just silence) to prevent RF interference.",
+            audioBestPractices7: "**Room Tone:** Record 30-60 seconds of ambient sound for every scene to fill gaps in editing.",
+            audioBestPractices8: "**Multiple Takes:** Capture multiple takes for crucial options during editing.",
+            audioBestPractices9: "**Syncing:** Use a clapboard at start of each take for easy audio/visual alignment in post. Maintain consistent naming.",
+            gainStagingTitle: "Achieving Pristine Sound: Gain Staging",
+            gainStagingDesc: "Gain staging is managing volume levels at each stage to ensure optimal sound quality without distortion or noise.",
+            gainStaging1: "Aim for average levels around -18 dBFS, with peaks not exceeding -6 dBFS to prevent clipping and maintain headroom.",
+            gainStaging2: "Avoid recording 'hot' (too loudly), as clipped audio is nearly impossible to repair.",
+            gainStaging3: "Avoid recording too low, as it amplifies the 'noise floor' when levels are raised.",
+            gainStaging4: "Use 'pad switches' for loud sources to prevent preamp overload.",
+            gainStaging5: "Adjust gain between takes for consistent levels.",
+            audioProblemsTitle: "Common Audio Problems & Solutions",
+            audioProblem1: "**Background Noise:** Prevent on set; use noise reduction plugins or EQ in post.",
+            audioProblem2: "**Echoes:** Prevent by choosing small rooms with soft surfaces or soundproofing.",
+            audioProblem3: "**Inconsistent Levels:** Prevent with consistent monitoring; use compression/limiting in post.",
+            audioProblem4: "**Clipped Audio:** Almost impossible to fix; requires re-recording.",
+            audioProblem5: "**Cutoff Audio:** Prevent by ensuring sufficient recording time; usually requires re-recording.",
+            craftTitle: "II. The Craft: Mastering Your Gear",
+            craftIntro: "This is the production phase, where theory meets practice. Here, we delve into the technical settings of your Sony A7C II and 50mm lens. Use the interactive tools below to understand how different settings create specific looks, how lighting shapes mood, and how to choose the right microphone for clear audio.",
+            sonySettingsTitle: "Sony A7C II: Interactive Settings Simulator",
+            sonySettingsIntro: "Optimal camera settings are not merely technical specifications but creative choices that profoundly impact the visual aesthetics of the footage. This simulator helps you understand recommended settings for common scenarios.",
+            scenarioSelectLabel: "Select a Shooting Scenario:",
+            scenarioCinematic: "Cinematic Look (24p)",
+            scenarioSmooth: "Smooth Motion (60p)",
+            scenarioSlowmo: "Slow Motion (120p)",
+            scenarioHint: "Choose a common scenario to see the recommended camera settings. This tool helps translate the technical data from the report into a practical, easy-to-use format.",
+            videoSettingsUnderstandingTitle: "Understanding Key Video Settings",
+            videoSetting1: "**Resolution:** Sony A7C II supports 4K (3840x2160) up to 60p/50p for impressive quality. Starting with HD (1920x1080) can simplify workflow for beginners due to smaller file sizes.",
+            videoSetting2: "**Frame Rate:** 24p for cinematic look; 30p/60p for smoother motion (60p allows 2x slow-motion); 120p for very smooth slow-motion (5x slower at 24p export).",
+            videoSetting3: "**Shutter Speed:** Follows the '180-degree rule' (1/(2 x frame rate)) for natural motion blur (e.g., 1/50 sec for 24p). Adjust for flickering light indoors.",
+            videoSetting4: "**ISO:** Keep as low as possible (e.g., ISO 100 or ISO 800 for S-Log3) to minimize image noise. A7C II has native range ISO 100-51200.",
+            videoSetting5: "**White Balance:** Manual setting (Kelvin) is crucial for consistent and accurate colors, especially when mixing light sources, over Auto White Balance.",
+            lensesAndProfilesTitle: "Maximizing Your Lenses & Picture Profiles",
+            lensesAndProfilesIntro: "Beyond the 50mm f1.8, understanding various lenses and picture profiles is key to expanding your creative toolkit and achieving diverse cinematic looks.",
+            fiftyMmLensTitle: "Your 50mm f1.8 Lens: Aperture, DoF, and Bokeh",
+            fiftyMmLensDesc1: "The 50mm f1.8 lens is exceptional for achieving a cinematic aesthetic. Its wide f1.8 aperture allows significant light gathering for low-light conditions and, more importantly, precise control over depth of field.",
+            fiftyMmLensDesc2: "A wider aperture (lower f-number like f1.8) creates a **shallower depth of field**, blurring the background and isolating the subject – a highly prized cinematic effect. This lens is renowned for its creamy, smooth **bokeh** (the aesthetic quality of the blur in out-of-focus areas).",
+            fiftyMmLensDesc3: "When shooting outdoors in bright daylight with a wide aperture, footage will be overexposed. **Neutral Density (ND) filters** are essential here. They act like sunglasses for the lens, reducing light without affecting color, allowing you to maintain shallow depth of field even in bright conditions.",
+            otherLensesTitle: "Exploring Other Lenses",
+            otherLens1: "**Wide-Angle Lenses (e.g., 16-35mm):** Ideal for establishing shots, landscapes, and tight interior spaces. They emphasize perspective and can create a sense of grandeur or vastness.",
+            otherLens2: "**Telephoto Lenses (e.g., 70-200mm):** Great for compressing perspective, isolating subjects from a distance, and creating dramatic close-ups. Useful for wildlife, sports, or capturing intimate moments without being intrusive.",
+            otherLens3: "**Zoom Lenses:** Offer versatility by covering a range of focal lengths, reducing the need to swap lenses frequently. Convenient for run-and-gun shooting but often have smaller maximum apertures than primes.",
+            otherLens4: "**Prime Lenses (fixed focal length):** Like your 50mm, they typically offer wider apertures, superior image quality, and better low-light performance compared to zoom lenses. Encourage more thoughtful composition.",
+            otherLens5: "**Anamorphic Lenses:** Create a unique, widescreen cinematic look with oval bokeh and horizontal lens flares.",
+            otherLens6: "**Macro Lenses:** Designed for extreme close-up photography, revealing intricate details of small subjects.",
+            otherCamerasTitle: "Other Camera Bodies to Consider",
+            otherCamerasIntro: "While your Sony A7C II is an excellent starting point, exploring other camera bodies can broaden your understanding of different ecosystems and specialized capabilities.",
+            otherCamera1: "**Blackmagic Pocket Cinema Camera (BMPCC) Series:** Renowned for their cinematic image quality, dynamic range, and ability to record in Blackmagic RAW or ProRes formats. Excellent for filmmakers prioritizing image fidelity and extensive post-production flexibility.",
+            otherCamera2: "**Canon EOS R Series (e.g., R5, R6 Mark II):** Known for their excellent color science, user-friendly interfaces, and industry-leading autofocus systems. A strong choice for hybrid shooters (stills and video) and those who value reliable performance.",
+            pictureProfilesTitle: "Picture Profiles & Color Grading",
+            pictureProfilesDesc: "Sony A7C II offers various Picture Profiles (PPs) that significantly impact the final look and color grading flexibility:",
+            pictureProfile1: "**S-Cinetone (PP11):** Delivers a cinematic look directly out of the camera with natural mid-tones, healthy skin tones, and soft colors, requiring minimal post-production. Excellent for quick turnarounds.",
+            pictureProfile2: "**S-Log (S-Log2/S-Log3, PP7/PP8/PP9):** Log gamma curves designed to capture a much wider dynamic range (14+ stops for S-Log3). Footage appears flat and low-contrast, retaining maximum image information for extensive manipulation in professional color grading. S-Log3 is preferred for maximum flexibility.",
+            pictureProfile3: "**Understanding LUTs (Look Up Tables):** When shooting in S-Log, LUTs are necessary in post-production to convert flat Log footage into standard color spaces (e.g., Rec. 709) and apply creative looks.",
+            pictureProfile4: "**Gamma Display Assist:** A7C II's function to apply a custom LUT to the monitor image while recording in Log, providing a real-time preview of graded footage for on-set adjustments.",
+            pictureProfile5: "**10-bit 4:2:2 Recording:** Provides significantly more color information for smoother, natural gradations during editing and color grading, especially with Log profiles, leading to a more refined final product.",
+            moodCreatorTitle: "Sculpting with Light: Mood Creator",
+            moodCreatorIntro: "The color temperature, intensity, and direction of light are all deliberate choices used to evoke specific emotions. This interactive tool helps you visualize how different lighting techniques create distinct moods.",
+            micComparisonTitle: "Audio Essentials: Microphone Comparison",
+            micComparisonIntro: "Audio quality is non-negotiable. Poor sound will ruin great visuals. This chart compares the core characteristics of common microphone types to help you choose the right tool for the job.",
+            cutTitle: "III. The Cut: Post-Production Mastery",
+            cutIntro: "Editing is where your story truly comes to life. This phase involves assembling your footage, correcting color, designing sound, and adding graphics. The workflow below outlines the key steps, and the software comparison will help you choose the right free tools to get started.",
+            postProductionWorkflowTitle: "The Post-Production Workflow",
+            postProductionWorkflowIntro: "A structured post-production workflow is essential for efficiency and quality control, transforming raw footage into a polished, compelling narrative.",
+            workflowStep1Num: "1",
+            workflowStep1Header: "Organize",
+            workflowStep1Desc: "Import all raw footage and organize it meticulously by scenes or takes.",
+            workflowStep2Num: "2",
+            workflowStep2Header: "Assemble",
+            workflowStep2Desc: "Create a first draft (rough cut) by arranging selected shots in chronological order and trimming excess footage.",
+            workflowStep3Num: "3",
+            workflowStep3Header: "Refine",
+            workflowStep3Desc: "Adjust color balance, eliminate background noise, add music/sound effects, and integrate visual effects/motion graphics.",
+            workflowStep4Num: "4",
+            workflowStep4Header: "Finalize",
+            workflowStep4Desc: "Incorporate smooth transitions, add captions/subtitles for accessibility, and review on various devices.",
+            workflowStep5Num: "5",
+            workflowStep5Header: "Export",
+            workflowStep5Desc: "Conduct a final review, secure client approval, and store backup copies of the final video and raw project files.",
+            editingSoftwareTitle: "Popular Editing Software Options",
+            editingSoftwareIntro: "Mastery of editing involves a blend of technical precision and artistic sensibility. Here are key techniques and recommended software options, including both free and industry-standard tools.",
+            davinciResolveTitle: "DaVinci Resolve",
+            davinciResolveDesc: "The industry standard for color grading, with powerful editing, audio (Fairlight), and VFX (Fusion) tools included for free. Steep learning curve but incredibly capable.",
+            davinciResolveTag: "Best for Professionals (Free Version)",
+            capcutTitle: "CapCut",
+            capcutDesc: "Extremely user-friendly and accessible, with a surprising number of advanced features. Great for quick edits, social media content, and learning the basics.",
+            capcutTag: "Best for Beginners (Free)",
+            kdenliveTitle: "Kdenlive",
+            kdenliveDesc: "A free, open-source, and cross-platform editor that is feature-rich. A good middle ground between simplicity and professional power.",
+            kdenliveTag: "Best for Hobbyists (Free)",
+            premiereProTitle: "Adobe Premiere Pro",
+            premiereProDesc: "An industry-leading professional video editing software. Offers deep integration with other Adobe Creative Cloud apps. Powerful for complex projects, but subscription-based.",
+            premiereProTag: "Industry Standard (Subscription)",
+            cuttingTrimmingTitle: "Cutting & Trimming",
+            cuttingTrimmingDesc: "Fundamental techniques to remove unwanted parts of clips and adjust their length to refine pacing and narrative. Seamless cuts are crucial for audience engagement.",
+            colorCorrectionTitle: "Color Correction & Grading",
+            colorCorrectionDesc: "Color correction fixes inconsistencies (e.g., white balance), while color grading applies a consistent aesthetic and mood. Applying LUTs is key when working with Log profiles.",
+            audioVfxTitle: "Audio Enhancement & VFX",
+            audioVfxDesc: "Adjust audio levels, eliminate noise, and add music/sound effects. Integrate visual effects (VFX) and motion graphics thoughtfully to enhance the narrative without overwhelming the viewer.",
+            advancedEditingAdsTitle: "Advanced Editing Concepts for Advertising",
+            advancedEditingAdsIntro: "For advertising, editing takes on specific strategic importance to maximize impact and audience engagement.",
+            pacingRhythmTitle: "Pacing & Rhythm",
+            pacingRhythmDesc: "The pacing of an edit significantly influences the emotional impact. Strategic sequencing of shots creates a cohesive narrative and maintains audience interest, crucial for short-form ad content.",
+            optimizingPlatformsTitle: "Optimizing for Platforms",
+            optimizingPlatformsDesc: "Videos must be tailored for their intended distribution platforms (e.g., short, engaging clips for social media; longer formats for YouTube). Consider different aspect ratios (vertical for mobile, horizontal for desktop).",
+            brandStorytellingTitle: "Brand Storytelling & Attention",
+            brandStorytellingDesc: "Leverage brand storytelling to evoke emotions and build loyalty, focusing on authentic, relatable narratives. Ads must grab attention immediately with a strong 'hook' and offer valuable content tailored to the audience, culminating in a clear Call-to-Action (CTA).",
+            launchTitle: "IV. The Launch: Distribution & Professional Growth",
+            launchIntro: "A great video is useless if no one sees it. This section focuses on getting your work in front of the right audience and building your professional brand. Learn how to distribute your content effectively and create a portfolio that attracts clients and collaborators.",
+            distributionPromotionTitle: "Distribution and Promotion",
+            platformSelectionTitle: "Platform Selection & Formatting",
+            platformSelectionDesc: "Choose channels based on target audience (YouTube, Vimeo, social media, website). Encode videos into platform-specific formats, optimizing for resolution, aspect ratio, file size, and codec.",
+            metadataSeoTitle: "Metadata & SEO Optimization",
+            metadataSeoDesc: "Craft compelling, keyword-rich titles and detailed descriptions. Use relevant tags and include captions/subtitles to improve discoverability and accessibility.",
+            publishingScheduleTitle: "Publishing Schedule & Promotional Assets",
+            publishingScheduleDesc: "Align video releases with marketing campaigns. Design eye-catching thumbnails, short trailers/teasers, and optimized social graphics to generate excitement and drive engagement.",
+            performanceTrackingTitle: "Performance Tracking & Analytics",
+            performanceTrackingDesc: "Continuously monitor key metrics like views, engagement rates (likes, comments, shares), and conversions. Use this data to refine future distribution strategies and optimize content.",
+            professionalPresenceTitle: "Building Your Professional Presence & Networking",
+            portfolioFirstTitle: "Portfolio First",
+            portfolioFirstDesc: "Showcase only your best work. Quality over quantity. Tell a story with your projects and demonstrate your unique style, including impactful short films or standout scenes.",
+            professionalWebsiteTitle: "Professional Website",
+            professionalWebsiteDesc: "Your digital storefront. It should be clean, fast, mobile-friendly, feature a compelling demo reel prominently, and clearly communicate your offerings and expertise.",
+            socialMediaTitle: "Strategic Social Media",
+            socialMediaDesc: "Use Instagram, YouTube, and especially LinkedIn to share behind-the-scenes content, client testimonials, and completed projects. Engage with the community and connect with decision-makers.",
+            networkingCollaborationTitle: "Networking & Collaboration",
+            networkingCollaborationDesc: "Attend industry events to make genuine connections. Join online groups (FILMD, Stage 32) to connect with creatives and find job leads. Collaborate with other professionals for referrals and new opportunities.",
+            clientOutreachTitle: "Client Outreach Strategies",
+            clientOutreachDesc: "Employ cold outreach, leverage personal networks, publish helpful content, build an email list, frequent online spaces where target audiences gather, check job boards (UpWork, Freelancer), and run targeted paid ads.",
+            libraryTitle: "V. The Library: Curated Learning Resources",
+            libraryIntro: "The journey to mastery is continuous. This library contains a curated list of the best free resources—from YouTube tutorials to online courses—mentioned in the original report. Use the filters to quickly find what you need to learn next.",
+            filterAll: "All",
+            filterGeneral: "General",
+            filterLighting: "Lighting",
+            filterAudio: "Audio",
+            filterVFX: "VFX",
+            filterScriptwriting: "Scriptwriting",
+            filterAnalysis: "Analysis",
+            filterColor: "Color",
+            filterEditing: "Editing",
+            filterMotionGraphics: "Motion Graphics",
+        },
+        fa: {
+            appTitle: "صعود فیلمساز: مسیر تعاملی به سوی تسلط بر سینما و تبلیغات",
+            mainTitle: "صعود فیلمساز",
+            mainSubtitle: "مسیر تعاملی برای تسلط بر سینما و تبلیغات",
+            navFoundation: "پایه و اساس",
+            navCraft: "هنر و فن",
+            navCut: "تدوین",
+            navLaunch: "عرضه و رشد",
+            navLibrary: "کتابخانه",
+            foundationTitle: "۱. پایه و اساس: ستون‌های داستان‌گویی بصری",
+            foundationIntro: "این بخش به اصول اساسی پیش‌تولید می‌پردازد که شالوده هر فیلم یا تبلیغ عالی را تشکیل می‌دهند. پیش از شروع فیلمبرداری، درک عمیق از روایت، ترکیب‌بندی، و مبانی نور و صدا حیاتی است. این بخش‌های تعاملی را کاوش کنید تا بنیان نظری قوی برای کار عملی خود بنا نهید.",
+            narrativeTitle: "خلق روایت‌های جذاب",
+            narrativePara1: "فیلمسازی در ذات خود داستان‌گویی است. هر نما باید در خدمت روایت باشد، عمق شخصیت را آشکار سازد و احساسات خاصی را در بیننده برانگیزد. برای فیلم‌های کوتاه و تبلیغات، تمرکز بر یک ایده واحد با ساختار روشن (شروع، میانه، پایان) اهمیت دارد. یک داستان قوی، چه برای اهداف هنری و چه تجاری، ارتباط عاطفی با مخاطب برقرار می‌کند و اعتماد می‌آفریند، که پیام را تأثیرگذارتر و ماندگارتر می‌سازد.",
+            narrativePara2: "پیش‌تولید قدرتمندترین ابزار شماست. فیلمنامه دقیق، استوری‌بورد و بررسی کامل مکان از بروز اشتباهات پرهزینه در مراحل بعدی جلوگیری می‌کند. هدف این است که کار را همان ابتدا و در دوربین به درستی انجام دهید، نه اینکه آن را به 'اصلاح در پس‌تولید' موکول کنید. این رویکرد پیشگیرانه، با پیش‌بینی چالش‌هایی مانند رفتار نور یا مسائل صوتی، ویژگی یک فیلمساز حرفه‌ای و سطح بالا است.",
+            workflowTitle: "جریان کار پیش‌تولید",
+            workflowStep1: "<strong>مفهوم و هدف:</strong> پیام اصلی و مخاطب هدف خود را تعریف کنید. پیام‌رسانی را متناسب با نیازها و خواسته‌های آنها تنظیم کنید.",
+            workflowStep2: "<strong>فیلمنامه‌نویسی:</strong> دیالوگ، صدای روی تصویر، متن روی صفحه و توضیحات بصری را با دقت جزئیات کنید. برای تبلیغات، روایت را حول یک مشکل-راه‌حل تنظیم کنید.",
+            workflowStep3: "<strong>استوری‌بورد:</strong> هر نما، زاویه دوربین و حرکت را تجسم کنید. این نقشه راه بصری، انسجام جریان روایت را تضمین می‌کند و خطاهای سر صحنه را به حداقل می‌رساند.",
+            workflowStep4: "<strong>جستجوی مکان:</strong> مکان‌ها را پیدا و ایمن کنید، با دقت مشکلات نور و صدا را که می‌تواند بر فیلمبرداری تأثیر بگذارد، بررسی کنید.",
+            workflowStep5: "<strong>آماده‌سازی تجهیزات:</strong> تمام تجهیزات دوربین، نورپردازی و صدا را به طور کامل بررسی کنید تا از آمادگی و جلوگیری از تاخیرهای فنی اطمینان حاصل کنید.",
+            compositionTitle: "تسلط بر کادر: ترکیب‌بندی و زوایای دوربین",
+            compositionIntro: "ترکیب‌بندی، چیدمان عمدی تمام عناصر درون کادر دوربین برای ایجاد روابط معنی‌دار بین سوژه‌ها، و در نهایت دستیابی به یک کل بصری متعادل، از نظر زیبایی‌شناختی دلپذیر و هماهنگ است. هر انتخاب ترکیب‌بندی مستقیماً بر روایت تأثیر می‌گذارد و احساسات خاصی را برمی‌انگیزد.",
+            ruleOfThirdsTitle: "قانون یک‌سوم",
+            ruleOfThirdsDesc: "سوژه‌های کلیدی را در تقاطع‌های یک شبکه ۳x۳ قرار دهید تا یک ترکیب‌بندی متعادل‌تر و پویا‌تر ایجاد شود. شکستن عمدی این قانون نیز می‌تواند یک انتخاب هنری قدرتمند برای ایجاد تنش یا هدایت تمرکز باشد.",
+            leadingLinesTitle: "خطوط هدایت‌کننده",
+            leadingLinesDesc: "از خطوط طبیعی در صحنه (جاده‌ها، حصارها، رودخانه‌ها) برای هدایت چشم بیننده به سمت سوژه استفاده کنید، بافت ضروری را منتقل کرده و توجه را به نقاط کلیدی جلب کنید.",
+            depthPerspectiveTitle: "عمق و پرسپکتیو",
+            depthPerspectiveDesc: "عناصر پیش‌زمینه، میانی و پس‌زمینه را برای ایجاد حس فضای سه‌بعدی، افزودن جذابیت بصری و واقع‌گرایی، ترکیب کنید. هر نما باید یک سوژه یا نقطه کانونی واضح داشته باشد.",
+            shotTypesTitle: "انواع نما و زوایای دوربین",
+            shotType1: "**نماهای واید:** برای معرفی محیط/مکان.",
+            shotType2: "**نماهای مدیوم:** تعادل بین احساسات شخصیت و محیط.",
+            shotType3: "**کلوزآپ‌ها:** انتقال احساسات شدید یا برجسته کردن جزئیات حیاتی.",
+            shotType4: "**نماهای هم‌سطح چشم:** ایجاد همدلی، بیننده احساس حضور می‌کند.",
+            shotType5: "**نماهای زاویه پایین:** سوژه‌ها را قدرتمند یا تحمیل‌کننده نشان می‌دهد.",
+            shotType6: "**نماهای زاویه بالا:** سوژه‌ها را ضعیف یا کوچک نشان می‌دهد.",
+            cameraMovementTitle: "حرکت عمدی دوربین",
+            cameraMovement1: "**پن (Panning):** حرکت افقی.",
+            cameraMovement2: "**تیلت (Tilting):** حرکت عمودی.",
+            cameraMovement3: "**تراکینگ (Tracking):** حرکت دوربین در کنار سوژه.",
+            cameraMovement4: "**دالی شات (Dolly shots):** حرکات افقی روان.",
+            cameraMovement5: "حرکات را آهسته نگه دارید و از زوم بیش از حد خودداری کنید تا تمرکز روی سوژه حفظ شود.",
+            lightingTitle: "شکل‌دهی با نور: نوردهی و نورپردازی سینمایی",
+            lightingIntro: "نورپردازی مهمترین عامل در فیلمسازی است که هم بر دید عملی و هم بر حال و هوای کلی زیبایی‌شناختی صحنه تأثیر می‌گذارد. درک سطح بالا شامل دانستن چگونگی انتخاب‌های عمدی در مورد کیفیت و جهت نور برای دستیابی به یک زیبایی‌شناسی مطلوب است، که نور را به ابزاری اصلی برای بیان هنری تبدیل می‌کند.",
+            naturalLightTitle: "مهار نور طبیعی",
+            naturalLight1: "**نور پراکنده:** سوژه را در سایه قرار دهید یا از دیفیوزرها برای نرم کردن نور مستقیم خورشید استفاده کنید، که کیفیتی نرم و فراگیر ایجاد می‌کند.",
+            naturalLight2: "**نور بازتابی:** از تخته‌های بازتابنده یا رفلکتورها (ملحفه‌های سفید، دیوارها، آینه‌ها) برای تغییر مسیر نور خورشید استفاده کنید، سایه‌ها را پر کرده و 'برجستگی' مطلوبی به تصویر اضافه کنید.",
+            naturalLight3: "**ساعت طلایی:** درست پس از طلوع آفتاب یا قبل از غروب آفتاب فیلمبرداری کنید تا یک درخشش طبیعی گرم و نرم داشته باشید.",
+            naturalLight4: "**نور پس‌زمینه:** به سمت خورشید فیلمبرداری کنید (خورشید پشت سوژه) برای نور حاشیه زیبا، فلرهای خورشیدی، و جلوگیری از چشمک زدن سوژه.",
+            threePointTitle: "پایه: نورپردازی سه‌نقطه‌ای",
+            threePoint1: "**نور کلیدی:** منبع اصلی و روشن‌ترین نور (۴۵ درجه نسبت به سوژه)، نوردهی کلی و سایه‌های اصلی را ایجاد می‌کند.",
+            threePoint2: "**نور پرکننده:** نور ثانویه و نرم‌تر (روبروی نور کلیدی)، سایه‌های ایجاد شده توسط نور کلیدی را پر می‌کند، کمتر از نور کلیدی روشن است.",
+            threePoint3: "**نور پس‌زمینه (نور حاشیه/مو):** پشت سوژه، آن را از پس‌زمینه جدا می‌کند، عمق می‌بخشد.",
+            threePoint4: "در تاریکی شروع کنید، هر نور را برای تعادل و سبک دلخواه تنظیم کنید.",
+            advancedLightingTitle: "تنظیمات پیشرفته نورپردازی سینمایی برای حال و هوا و درام",
+            advancedLighting1: "**نورپردازی نرم فیلم:** منابع نور بزرگ یا مواد دیفیوزر برای نرم کردن سایه‌ها، ایده‌آل برای کلوزآپ‌ها و نماهای 'های کی'.",
+            advancedLighting2: "**نورپردازی سخت فیلم:** منابع نور کوچکتر و شدیدتر برای افزایش سایه‌ها، مورد استفاده برای جلوه‌های دراماتیک (مانند فیلم نوآر).",
+            advancedLighting3: "**نور کیکر با پرکننده نرم:** نور پس‌زمینه که یک حاشیه فرشته‌وار ایجاد می‌کند، با نور پرکننده نرم برای روشن کردن ملایم صورت تکمیل می‌شود.",
+            advancedLighting4: "**نورپردازی لو کی (Low Key):** به حداقل رساندن/حذف نور پرکننده برای ایجاد سایه‌های عمیق و دراماتیک، برانگیختن رمز و راز یا تعلیق.",
+            advancedLighting5: "**نورپردازی با انگیزه:** تقویت نورهای عملی موجود (لامپ‌ها، پنجره‌ها) برای طبیعی و هدفمند به نظر رسیدن نورپردازی.",
+            advancedLighting6: "**دمای رنگ (کلوین):** گرم (۳۲۰۰K) برای دنج، خنثی (۴۵۰۰K) برای متعادل، سرد (۵۶۰۰K) برای واضح/دراماتیک.",
+            advancedLighting7: "**نورپردازی جهت‌دار:** نورپردازی جانبی برای عمق، نورپردازی از جلو برای یکنواختی، نورپردازی از پشت برای جدایی/درام.",
+            advancedLighting8: "**اشتباهات رایج برای اجتناب:** ترکیب دمای رنگ، نوردهی بیش از حد، نورپردازی تخت در صورت نیاز به درام، عدم جدایی سوژه.",
+            audioTitle: "قدرت پنهان: ضبط صدای حرفه‌ای",
+            audioIntro: "کیفیت صدا به اندازه کیفیت تصویر مهم است؛ صدای ضعیف می‌تواند یک تولید خیره‌کننده را خراب کند. یک فیلمساز سطح بالا صدا را نه یک فکر ثانویه، بلکه یک جزء اصلی می‌داند که از همان ابتدا نیاز به توجه دقیق دارد.",
+            audioBestPracticesTitle: "بهترین شیوه‌های ضبط صدا در صحنه",
+            audioBestPractices1: "**کنترل محیط:** به نویز محیط (فن‌ها، ترافیک، تهویه مطبوع) و اکوها توجه کنید. از مکان‌های آرام یا عایق صوتی استفاده کنید.",
+            audioBestPractices2: "**مکان میکروفون:** میکروفون را تا حد امکان نزدیک به منبع صدا قرار دهید (۱۵-۳۰ سانتی‌متر از دهان، کمی خارج از محور برای وکال).",
+            audioBestPractices3: "**لوازم جانبی:** از پاپ فیلتر برای صداهای انفجاری و از بادگیر ('گربه مرده') برای نویز باد در فضای باز استفاده کنید.",
+            audioBestPractices4: "**نظارت:** همیشه از هدفون‌های عایق صدا برای نظارت بر سطوح صوتی در زمان واقعی استفاده کنید.",
+            audioBestPractices5: "**تنظیمات فنی:** حداقل ۲۴ بیت، ترجیحاً ۳۲ بیت فلوت، برای دامنه دینامیکی وسیع‌تر و بازیابی ضبط کنید.",
+            audioBestPractices6: "**آماده‌سازی:** باتری‌ها را بررسی کنید، از فضای ذخیره‌سازی اطمینان حاصل کنید، تمام تلفن‌های همراه را (نه فقط بی‌صدا) خاموش کنید تا از تداخل RF جلوگیری شود.",
+            audioBestPractices7: "**تون اتاق:** ۳۰-۶۰ ثانیه از صدای محیط برای هر صحنه ضبط کنید تا شکاف‌ها را در تدوین پر کنید.",
+            audioBestPractices8: "**چندین برداشت:** چندین برداشت برای گزینه‌های حیاتی در طول تدوین ضبط کنید.",
+            audioBestPractices9: "**همگام‌سازی:** از یک کلاپ‌بورد در ابتدای هر برداشت برای همگام‌سازی آسان صدا/تصویر در پس‌تولید استفاده کنید. نام‌گذاری یکنواخت را حفظ کنید.",
+            gainStagingTitle: "دستیابی به صدای بی‌عیب: تنظیم گین",
+            gainStagingDesc: "تنظیم گین، مدیریت سطوح صدا در هر مرحله برای اطمینان از کیفیت صدای بهینه بدون اعوجاج یا نویز است.",
+            gainStaging1: "هدف، سطوح متوسط در حدود -۱۸ dBFS باشد، با اوج‌هایی که از -۶ dBFS تجاوز نکند تا از کلیپینگ جلوگیری شود و headroom حفظ شود.",
+            gainStaging2: "از ضبط 'داغ' (بیش از حد بلند) خودداری کنید، زیرا صدای کلیپ شده تقریباً غیرقابل ترمیم است.",
+            gainStaging3: "از ضبط بیش از حد پایین خودداری کنید، زیرا هنگام افزایش سطح، 'نویز کف' را تقویت می‌کند.",
+            gainStaging4: "از 'سوئیچ‌های پد' برای منابع بلند استفاده کنید تا از اضافه بار پری‌آمپ جلوگیری شود.",
+            gainStaging5: "گین را بین برداشت‌ها برای سطوح ثابت تنظیم کنید.",
+            audioProblemsTitle: "مشکلات رایج صدا و راه‌حل‌ها",
+            audioProblem1: "**نویز پس‌زمینه:** در صحنه از آن جلوگیری کنید؛ از پلاگین‌های کاهش نویز یا EQ در پس‌تولید استفاده کنید.",
+            audioProblem2: "**اکوها:** با انتخاب اتاق‌های کوچک با سطوح نرم یا عایق صوتی از آنها جلوگیری کنید.",
+            audioProblem3: "**سطوح ناسازگار:** با نظارت مداوم از آنها جلوگیری کنید؛ از فشرده‌سازی/محدودکننده در پس‌تولید استفاده کنید.",
+            audioProblem4: "**صدای کلیپ شده:** تقریباً غیرقابل ترمیم است؛ نیاز به ضبط مجدد دارد.",
+            audioProblem5: "**صدای قطع شده:** با اطمینان از زمان ضبط کافی جلوگیری کنید؛ معمولاً نیاز به ضبط مجدد دارد.",
+            craftTitle: "۲. هنر و فن: تسلط بر تجهیزات شما",
+            craftIntro: "این مرحله تولید است، جایی که تئوری با عمل روبرو می‌شود. در اینجا، ما به تنظیمات فنی دوربین سونی A7C II و لنز ۵۰ میلی‌متری شما می‌پردازیم. از ابزارهای تعاملی زیر استفاده کنید تا بفهمید چگونه تنظیمات مختلف ظاهر خاصی را ایجاد می‌کنند، چگونه نورپردازی حال و هوا را شکل می‌دهد و چگونه میکروفون مناسب برای صدای واضح را انتخاب کنید.",
+            sonySettingsTitle: "سونی A7C II: شبیه‌ساز تنظیمات تعاملی",
+            sonySettingsIntro: "تنظیمات بهینه دوربین صرفاً مشخصات فنی نیستند، بلکه انتخاب‌های خلاقانه‌ای هستند که به شدت بر زیبایی‌شناسی بصری فیلم تأثیر می‌گذارند. این شبیه‌ساز به شما کمک می‌کند تا تنظیمات توصیه شده برای سناریوهای رایج را درک کنید.",
+            scenarioSelectLabel: "سناریوی فیلمبرداری را انتخاب کنید:",
+            scenarioCinematic: "ظاهر سینمایی (۲۴p)",
+            scenarioSmooth: "حرکت روان (۶۰p)",
+            scenarioSlowmo: "حرکت آهسته (۱۲۰p)",
+            scenarioHint: "یک سناریوی رایج را انتخاب کنید تا تنظیمات توصیه شده دوربین را ببینید. این ابزار به تبدیل داده‌های فنی گزارش به یک فرمت عملی و آسان برای استفاده کمک می‌کند.",
+            videoSettingsUnderstandingTitle: "درک تنظیمات کلیدی ویدیو",
+            videoSetting1: "**رزولوشن:** سونی A7C II از ۴K (۳۸۴۰x۲۱۶۰) تا ۶۰p/۵۰p برای کیفیت چشمگیر پشتیبانی می‌کند. شروع با HD (۱۹۲۰x۱۰۸۰) می‌تواند جریان کار را برای مبتدیان به دلیل حجم فایل‌های کوچکتر ساده کند.",
+            videoSetting2: "**نرخ فریم:** ۲۴p برای ظاهر سینمایی؛ ۳۰p/۶۰p برای حرکت روان‌تر (۶۰p امکان حرکت آهسته ۲ برابر را می‌دهد)؛ ۱۲۰p برای حرکت آهسته بسیار روان (۵ برابر آهسته‌تر در خروجی ۲۴p).",
+            videoSetting3: "**سرعت شاتر:** از 'قانون ۱۸۰ درجه' (۱/(۲ x نرخ فریم)) برای تاری حرکت طبیعی (مانند ۱/۵۰ ثانیه برای ۲۴p) پیروی می‌کند. برای نورهای چشمک‌زن در داخل خانه تنظیم کنید.",
+            videoSetting4: "**ISO:** تا حد امکان پایین نگه دارید (مانند ISO ۱۰۰ یا ISO ۸۰۰ برای S-Log3) تا نویز تصویر به حداقل برسد. A7C II دارای محدوده بومی ISO ۱۰۰-۵۱۲۰۰ است.",
+            videoSetting5: "**تراز سفیدی:** تنظیم دستی (کلوین) برای رنگ‌های ثابت و دقیق، به ویژه هنگام ترکیب منابع نور، بسیار مهم است، نه تراز سفیدی خودکار.",
+            lensesAndProfilesTitle: "به حداکثر رساندن لنزها و پروفایل‌های تصویر شما",
+            lensesAndProfilesIntro: "فراتر از ۵۰ میلی‌متر f1.8، درک لنزهای مختلف و پروفایل‌های تصویر برای گسترش ابزارهای خلاقانه شما و دستیابی به ظاهرهای سینمایی متنوع، کلیدی است.",
+            fiftyMmLensTitle: "لنز ۵۰ میلی‌متری f1.8 شما: دیافراگم، عمق میدان و بوکه",
+            fiftyMmLensDesc1: "لنز ۵۰ میلی‌متری f1.8 برای دستیابی به یک زیبایی‌شناسی سینمایی استثنایی است. دیافراگم باز f1.8 آن امکان جمع‌آوری نور قابل توجهی را برای شرایط کم نور فراهم می‌کند و مهمتر از آن، کنترل دقیقی بر عمق میدان.",
+            fiftyMmLensDesc2: "دیافراگم بازتر (عدد f پایین‌تر مانند f1.8) یک **عمق میدان کم عمق‌تر** ایجاد می‌کند، پس‌زمینه را تار کرده و سوژه را جدا می‌کند – یک جلوه سینمایی بسیار ارزشمند. این لنز به دلیل **بوکه** (کیفیت زیبایی‌شناختی تاری در مناطق خارج از فوکوس) خامه‌ای و روان خود مشهور است.",
+            fiftyMmLensDesc3: "هنگام فیلمبرداری در فضای باز در نور روز روشن با دیافراگم باز، فیلم بیش از حد نوردهی می‌شود. **فیلترهای چگالی خنثی (ND)** در اینجا ضروری هستند. آنها مانند عینک آفتابی برای لنز عمل می‌کنند و نور را بدون تأثیر بر رنگ کاهش می‌دهند و به شما امکان می‌دهند عمق میدان کم عمق را حتی در شرایط روشن حفظ کنید.",
+            otherLensesTitle: "کاوش لنزهای دیگر",
+            otherLens1: "**لنزهای واید (مانند ۱۶-۳۵ میلی‌متر):** ایده‌آل برای نماهای معرف، مناظر طبیعی و فضاهای داخلی تنگ. آنها بر پرسپکتیو تأکید می‌کنند و می‌توانند حس عظمت یا وسعت را ایجاد کنند.",
+            otherLens2: "**لنزهای تله‌فوتو (مانند ۷۰-۲۰۰ میلی‌متر):** عالی برای فشرده‌سازی پرسپکتیو، جداسازی سوژه‌ها از راه دور و ایجاد کلوزآپ‌های دراماتیک. مفید برای حیات وحش، ورزش یا ثبت لحظات صمیمی بدون مزاحمت.",
+            otherLens3: "**لنزهای زوم:** با پوشش طیف وسیعی از فواصل کانونی، تطبیق‌پذیری را ارائه می‌دهند و نیاز به تعویض مکرر لنز را کاهش می‌دهند. برای فیلمبرداری سریع و بدون توقف راحت هستند اما اغلب دیافراگم حداکثر کوچکتری نسبت به پرایم‌ها دارند.",
+            otherLens4: "**لنزهای پرایم (فاصله کانونی ثابت):** مانند لنز ۵۰ میلی‌متری شما، آنها معمولاً دیافراگم‌های بازتر، کیفیت تصویر برتر و عملکرد بهتر در نور کم را در مقایسه با لنزهای زوم ارائه می‌دهند. ترکیب‌بندی متفکرانانه‌تری را تشویق می‌کنند.",
+            otherLens5: "**لنزهای آنامورفیک:** ظاهری سینمایی و واید با بوکه‌های بیضی شکل و فلرهای لنز افقی ایجاد می‌کنند.",
+            otherLens6: "**لنزهای ماکرو:** برای عکاسی کلوزآپ شدید طراحی شده‌اند و جزئیات پیچیده سوژه‌های کوچک را آشکار می‌کنند.",
+            otherCamerasTitle: "دوربین‌های دیگر برای بررسی",
+            otherCamerasIntro: "در حالی که سونی A7C II نقطه شروع عالی است، بررسی دوربین‌های دیگر می‌تواند درک شما را از اکوسیستم‌های مختلف و قابلیت‌های تخصصی گسترش دهد.",
+            otherCamera1: "**سری دوربین‌های Blackmagic Pocket Cinema Camera (BMPCC):** به دلیل کیفیت تصویر سینمایی، دامنه دینامیکی و قابلیت ضبط در فرمت‌های Blackmagic RAW یا ProRes مشهور هستند. عالی برای فیلمسازانی که کیفیت تصویر و انعطاف‌پذیری گسترده پس‌تولید را در اولویت قرار می‌دهند.",
+            otherCamera2: "**سری Canon EOS R (مانند R5, R6 Mark II):** به دلیل علم رنگ عالی، رابط‌های کاربری کاربرپسند و سیستم‌های فوکوس خودکار پیشرو در صنعت شناخته شده‌اند. انتخابی قوی برای فیلمبرداران هیبریدی (عکس و ویدیو) و کسانی که عملکرد قابل اعتماد را ارزش می‌نهند.",
+            pictureProfilesTitle: "پروفایل‌های تصویر و درجه‌بندی رنگ",
+            pictureProfilesDesc: "سونی A7C II پروفایل‌های تصویر (PPs) مختلفی را ارائه می‌دهد که به طور قابل توجهی بر ظاهر نهایی و انعطاف‌پذیری درجه‌بندی رنگ تأثیر می‌گذارند:",
+            pictureProfile1: "**S-Cinetone (PP11):** ظاهری سینمایی را مستقیماً از دوربین با رنگ‌های میانی طبیعی، رنگ پوست سالم و رنگ‌های نرم ارائه می‌دهد که نیاز به حداقل پس‌تولید دارد. عالی برای کارهای سریع.",
+            pictureProfile2: "**S-Log (S-Log2/S-Log3, PP7/PP8/PP9):** منحنی‌های گامای Log طراحی شده‌اند تا دامنه دینامیکی بسیار وسیع‌تری را ثبت کنند (۱۴+ استاپ برای S-Log3). فیلم تخت و کم‌کنتراست به نظر می‌رسد، حداکثر اطلاعات تصویر را برای دستکاری گسترده در درجه‌بندی رنگ حرفه‌ای حفظ می‌کند. S-Log3 برای حداکثر انعطاف‌پذیری ترجیح داده می‌شود.",
+            pictureProfile3: "**درک LUTها (Look Up Tables):** هنگام فیلمبرداری در S-Log، LUTها در پس‌تولید برای تبدیل فیلم تخت Log به فضاهای رنگی استاندارد (مانند Rec. 709) و اعمال ظاهرهای خلاقانه ضروری هستند.",
+            pictureProfile4: "**کمک نمایش گاما:** عملکرد A7C II برای اعمال یک LUT سفارشی به تصویر مانیتور هنگام ضبط در منحنی گامای Log، پیش‌نمایش در زمان واقعی فیلم درجه‌بندی شده را برای تنظیمات سر صحنه فراهم می‌کند.",
+            pictureProfile5: "**ضبط ۱۰ بیتی ۴:۲:۲:** اطلاعات رنگی به مراتب بیشتری را برای گرادیان‌های طبیعی‌تر و روان‌تر در طول تدوین و درجه‌بندی رنگ، به ویژه با پروفایل‌های Log، فراهم می‌کند که منجر به یک محصول نهایی پالایش‌شده‌تر می‌شود.",
+            moodCreatorTitle: "شکل‌دهی با نور: خالق حال و هوا",
+            moodCreatorIntro: "دمای رنگ، شدت و جهت نور همگی انتخاب‌های عمدی هستند که برای برانگیختن احساسات خاص استفاده می‌شوند. این ابزار تعاملی به شما کمک می‌کند تا تجسم کنید چگونه تکنیک‌های نورپردازی مختلف حال و هواهای متمایزی را ایجاد می‌کنند.",
+            micComparisonTitle: "اصول صوتی: مقایسه میکروفون",
+            micComparisonIntro: "کیفیت صدا غیرقابل مذاکره است. صدای ضعیف تصاویر عالی را خراب می‌کند. این نمودار ویژگی‌های اصلی انواع میکروفون‌های رایج را مقایسه می‌کند تا به شما در انتخاب ابزار مناسب برای کار کمک کند.",
+            cutTitle: "۳. تدوین: تسلط بر پس‌تولید",
+            cutIntro: "تدوین جایی است که داستان شما واقعاً زنده می‌شود. این مرحله شامل مونتاژ فیلم، تصحیح رنگ، طراحی صدا و افزودن گرافیک است. جریان کار زیر مراحل کلیدی را مشخص می‌کند و مقایسه نرم‌افزار به شما کمک می‌کند تا ابزارهای رایگان مناسب برای شروع را انتخاب کنید.",
+            postProductionWorkflowTitle: "جریان کار پس‌تولید",
+            postProductionWorkflowIntro: "یک جریان کار ساختاریافته پس‌تولید برای کارایی و کنترل کیفیت ضروری است و فیلم خام را به یک روایت صیقلی و جذاب تبدیل می‌کند.",
+            workflowStep1Num: "۱",
+            workflowStep1Header: "سازماندهی",
+            workflowStep1Desc: "تمام فیلم‌های خام را وارد کرده و با دقت بر اساس صحنه‌ها یا برداشت‌ها سازماندهی کنید.",
+            workflowStep2Num: "۲",
+            workflowStep2Header: "مونتاژ",
+            workflowStep2Desc: "یک پیش‌نویس اولیه (برش خشن) با چیدمان نماهای انتخاب شده به ترتیب زمانی و حذف فیلم اضافی ایجاد کنید.",
+            workflowStep3Num: "۳",
+            workflowStep3Header: "پالایش",
+            workflowStep3Desc: "تراز رنگ را تنظیم کنید، نویز پس‌زمینه را حذف کنید، موسیقی/جلوه‌های صوتی را اضافه کنید و جلوه‌های بصری/گرافیک متحرک را یکپارچه کنید.",
+            workflowStep4Num: "۴",
+            workflowStep4Header: "نهایی کردن",
+            workflowStep4Desc: "انتقال‌های روان را ادغام کنید، زیرنویس/کپشن برای دسترسی‌پذیری اضافه کنید و در دستگاه‌های مختلف بازبینی کنید.",
+            workflowStep5Num: "۵",
+            workflowStep5Header: "خروجی",
+            workflowStep5Desc: "یک بازبینی نهایی انجام دهید، تأیید مشتری را بگیرید و نسخه‌های پشتیبان از ویدیوی نهایی و فایل‌های پروژه خام را ذخیره کنید.",
+            editingSoftwareTitle: "گزینه‌های نرم‌افزار تدوین محبوب",
+            editingSoftwareIntro: "تسلط بر تدوین ترکیبی از دقت فنی و حساسیت هنری را شامل می‌شود. در اینجا تکنیک‌های کلیدی و گزینه‌های نرم‌افزاری توصیه شده، شامل ابزارهای رایگان و استاندارد صنعتی، آورده شده است.",
+            davinciResolveTitle: "داوینچی ریزالو",
+            davinciResolveDesc: "استاندارد صنعتی برای درجه‌بندی رنگ، با ابزارهای قدرتمند تدوین، صدا (Fairlight) و جلوه‌های بصری (Fusion) که به صورت رایگان ارائه می‌شود. منحنی یادگیری شیب‌داری دارد اما فوق‌العاده توانمند است.",
+            davinciResolveTag: "بهترین برای حرفه‌ای‌ها (نسخه رایگان)",
+            capcutTitle: "کپ‌کات",
+            capcutDesc: "بسیار کاربرپسند و قابل دسترس، با تعداد شگفت‌انگیزی از ویژگی‌های پیشرفته. عالی برای تدوین‌های سریع، محتوای رسانه‌های اجتماعی و یادگیری اصول اولیه.",
+            capcutTag: "بهترین برای مبتدیان (رایگان)",
+            kdenliveTitle: "کدنلایو",
+            kdenliveDesc: "یک ویرایشگر رایگان، متن‌باز و چند پلتفرمی است که ویژگی‌های غنی دارد. یک حد وسط خوب بین سادگی و قدرت حرفه‌ای.",
+            kdenliveTag: "بهترین برای علاقه‌مندان (رایگان)",
+            premiereProTitle: "ادوبی پریمیر پرو",
+            premiereProDesc: "یک نرم‌افزار تدوین ویدیوی حرفه‌ای پیشرو در صنعت. ادغام عمیقی با سایر برنامه‌های Adobe Creative Cloud ارائه می‌دهد. قدرتمند برای پروژه‌های پیچیده، اما مبتنی بر اشتراک است.",
+            premiereProTag: "استاندارد صنعتی (اشتراک)",
+            cuttingTrimmingTitle: "برش و کوتاه کردن",
+            cuttingTrimmingDesc: "تکنیک‌های اساسی برای حذف قسمت‌های ناخواسته کلیپ‌ها و تنظیم طول آنها برای بهبود ریتم و روایت. برش‌های بی‌درز برای جلب توجه مخاطب بسیار مهم هستند.",
+            colorCorrectionTitle: "تصحیح و درجه‌بندی رنگ",
+            colorCorrectionDesc: "تصحیح رنگ ناهماهنگی‌ها را (مانند تراز سفیدی) برطرف می‌کند، در حالی که درجه‌بندی رنگ یک زیبایی‌شناسی و حال و هوای ثابت را اعمال می‌کند. استفاده از LUTها هنگام کار با پروفایل‌های Log کلیدی است.",
+            audioVfxTitle: "بهبود صدا و جلوه‌های بصری",
+            audioVfxDesc: "سطوح صدا را تنظیم کنید، نویز را حذف کنید، و موسیقی/جلوه‌های صوتی را اضافه کنید. جلوه‌های بصری (VFX) و گرافیک متحرک را با دقت یکپارچه کنید تا روایت را بدون غرق کردن بیننده، بهبود بخشید.",
+            advancedEditingAdsTitle: "مفاهیم پیشرفته تدوین برای تبلیغات",
+            advancedEditingAdsIntro: "برای تبلیغات، تدوین اهمیت استراتژیک خاصی برای به حداکثر رساندن تأثیر و جلب توجه مخاطب پیدا می‌کند.",
+            pacingRhythmTitle: "ریتم و سرعت",
+            pacingRhythmDesc: "ریتم تدوین به طور قابل توجهی بر تأثیر عاطفی ویدیو تأثیر می‌گذارد. توالی استراتژیک نماها یک روایت منسجم ایجاد می‌کند و علاقه مخاطب را حفظ می‌کند، که برای محتوای تبلیغاتی کوتاه بسیار مهم است.",
+            optimizingPlatformsTitle: "بهینه‌سازی برای پلتفرم‌ها",
+            optimizingPlatformsDesc: "ویدیوها باید برای پلتفرم‌های توزیع مورد نظر (مانند کلیپ‌های کوتاه و جذاب برای رسانه‌های اجتماعی؛ فرمت‌های طولانی‌تر برای یوتیوب) تنظیم شوند. نسبت‌های ابعادی مختلف (عمودی برای موبایل، افقی برای دسکتاپ) را در نظر بگیرید.",
+            brandStorytellingTitle: "داستان‌گویی برند و جلب توجه",
+            brandStorytellingDesc: "از داستان‌گویی برند برای برانگیختن احساسات و ایجاد وفاداری استفاده کنید، با تمرکز بر روایت‌های معتبر و قابل ارتباط. تبلیغات باید بلافاصله با یک 'قلاب' قوی توجه را جلب کنند و محتوای ارزشمندی را متناسب با مخاطب ارائه دهند، که به یک فراخوان به عمل (CTA) واضح منجر شود.",
+            launchTitle: "۴. عرضه: توزیع و رشد حرفه‌ای",
+            launchIntro: "یک ویدیوی عالی بی‌فایده است اگر کسی آن را نبیند. این بخش بر روی رساندن کار شما به مخاطب مناسب و ساختن برند حرفه‌ای شما تمرکز دارد. یاد بگیرید چگونه محتوای خود را به طور موثر توزیع کنید و یک پورتفولیو بسازید که مشتریان و همکاران را جذب کند.",
+            distributionPromotionTitle: "توزیع و تبلیغ",
+            platformSelectionTitle: "انتخاب پلتفرم و فرمت‌بندی",
+            platformSelectionDesc: "کانال‌ها را بر اساس مخاطب هدف (یوتیوب، ویمئو، رسانه‌های اجتماعی، وب‌سایت) انتخاب کنید. ویدیوها را به فرمت‌های خاص پلتفرم کدگذاری کنید، با بهینه‌سازی رزولوشن، نسبت ابعاد، حجم فایل و کدک.",
+            metadataSeoTitle: "فراداده و بهینه‌سازی سئو",
+            metadataSeoDesc: "عناوین جذاب و غنی از کلمات کلیدی و توضیحات دقیق را ایجاد کنید. از برچسب‌های مرتبط استفاده کنید و زیرنویس/کپشن را برای بهبود قابلیت کشف و دسترسی‌پذیری اضافه کنید.",
+            publishingScheduleTitle: "برنامه انتشار و دارایی‌های تبلیغاتی",
+            publishingScheduleDesc: "انتشار ویدیوها را با کمپین‌های بازاریابی هماهنگ کنید. تصاویر کوچک جذاب، تریلرها/تیزرها و گرافیک‌های اجتماعی بهینه‌سازی شده را برای ایجاد هیجان و افزایش تعامل طراحی کنید.",
+            performanceTrackingTitle: "ردیابی عملکرد و تحلیل",
+            performanceTrackingDesc: "به طور مداوم معیارهای کلیدی مانند بازدیدها، نرخ تعامل (لایک، نظرات، اشتراک‌گذاری) و تبدیل‌ها را نظارت کنید. از این داده‌ها برای اصلاح استراتژی‌های توزیع آینده و بهینه‌سازی محتوا استفاده کنید.",
+            professionalPresenceTitle: "ساخت حضور حرفه‌ای و شبکه‌سازی",
+            portfolioFirstTitle: "پورتفولیو در اولویت",
+            portfolioFirstDesc: "فقط بهترین کار خود را به نمایش بگذارید. کیفیت بر کمیت ارجح است. با پروژه‌های خود داستانی بگویید و سبک منحصر به فرد خود را نشان دهید، از جمله فیلم‌های کوتاه تاثیرگذار یا صحنه‌های برجسته.",
+            professionalWebsiteTitle: "وب‌سایت حرفه‌ای",
+            professionalWebsiteDesc: "ویترین دیجیتال شما. باید تمیز، سریع، سازگار با موبایل باشد، یک دمو ریل جذاب را به طور برجسته نمایش دهد و به وضوح پیشنهادات و تخصص شما را بیان کند.",
+            socialMediaTitle: "رسانه‌های اجتماعی استراتژیک",
+            socialMediaDesc: "از اینستاگرام، یوتیوب و به ویژه لینکدین برای اشتراک‌گذاری محتوای پشت صحنه، توصیفات مشتریان و پروژه‌های تکمیل شده استفاده کنید. با جامعه درگیر شوید و با تصمیم‌گیرندگان ارتباط برقرار کنید.",
+            networkingCollaborationTitle: "شبکه‌سازی و همکاری",
+            networkingCollaborationDesc: "در رویدادهای صنعتی شرکت کنید تا ارتباطات واقعی برقرار کنید. به گروه‌های آنلاین (FILMD, Stage 32) بپیوندید تا با خلاقان ارتباط برقرار کنید و فرصت‌های شغلی پیدا کنید. با سایر حرفه‌ای‌ها برای ارجاع و فرصت‌های جدید همکاری کنید.",
+            clientOutreachTitle: "استراتژی‌های جذب مشتری",
+            clientOutreachDesc: "از ارتباط سرد، شبکه‌های شخصی، انتشار محتوای مفید، ساخت لیست ایمیل، حضور در فضاهای آنلاین که مخاطبان هدف در آنجا هستند، بررسی تابلوهای شغلی (UpWork, Freelancer) و اجرای تبلیغات هدفمند پولی استفاده کنید.",
+            libraryTitle: "۵. کتابخانه: منابع آموزشی منتخب",
+            libraryIntro: "سفر به تسلط مداوم است. این کتابخانه شامل لیستی منتخب از بهترین منابع رایگان — از آموزش‌های یوتیوب تا دوره‌های آنلاین — است که در گزارش اصلی ذکر شده‌اند. از فیلترها برای یافتن سریع آنچه برای یادگیری بعدی نیاز دارید استفاده کنید.",
+            filterAll: "همه",
+            filterGeneral: "عمومی",
+            filterLighting: "نورپردازی",
+            filterAudio: "صدا",
+            filterVFX: "جلوه‌های بصری",
+            filterScriptwriting: "فیلمنامه‌نویسی",
+            filterAnalysis: "تحلیل",
+            filterColor: "رنگ",
+            filterEditing: "تدوین",
+            filterMotionGraphics: "گرافیک متحرک",
+        }
+    };
+
+    let currentLang = localStorage.getItem('filmmakerLang') || 'en';
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('filmmakerLang', lang);
+        document.body.classList.toggle('rtl', lang === 'fa');
+
+        document.querySelectorAll('[data-lang-key]').forEach(element => {
+            const key = element.dataset.langKey;
+            if (translations[lang] && translations[lang][key]) {
+                element.innerHTML = translations[lang][key];
+            }
+        });
+
+        // Update active language button styles
+        document.getElementById('lang-en').classList.toggle('bg-yellow-600', lang === 'en');
+        document.getElementById('lang-en').classList.toggle('text-white', lang === 'en');
+        document.getElementById('lang-en').classList.toggle('bg-white', lang === 'fa');
+        document.getElementById('lang-en').classList.toggle('text-stone-700', lang === 'fa');
+
+        document.getElementById('lang-fa').classList.toggle('bg-yellow-600', lang === 'fa');
+        document.getElementById('lang-fa').classList.toggle('text-white', lang === 'fa');
+        document.getElementById('lang-fa').classList.toggle('bg-white', lang === 'en');
+        document.getElementById('lang-fa').classList.toggle('text-stone-700', lang === 'en');
+
+        // Re-render dynamic content (like scenario settings, lighting moods, resources)
+        // to ensure they pick up the new language if their content is dynamic
+        updateCameraSettings(scenarioSelect.value);
+        updateLightingMood(document.querySelector('#lighting-moods button.active')?.dataset.mood || 'friendly');
+        renderResources(document.querySelector('#resource-filters button.active')?.dataset.filter || 'All');
+
+        // Update chart title (Chart.js doesn't use data-lang-key directly)
+        if (window.micChartInstance) {
+            window.micChartInstance.options.plugins.title.text = translations[currentLang].micComparisonTitle;
+            window.micChartInstance.update();
+        }
+    }
+
     const cameraSettingsData = {
         cinematic: {
-            title: 'Cinematic Look (24p)',
+            title: {en: 'Cinematic Look (24p)', fa: 'ظاهر سینمایی (۲۴p)'},
             settings: [
-                { label: 'File Format', value: 'XAVC HS 4K' },
-                { label: 'Record Setting', value: '24p 100M 4:2:2 10bit' },
-                { label: 'Shutter Speed', value: '1/50 sec' },
-                { label: 'Aperture', value: 'f1.8 (use ND filter)' },
-                { label: 'ISO', value: '800 (S-Log3) / Auto' },
-                { label: 'Picture Profile', value: 'PP8 (S-Log3)' }
+                { label: {en: 'File Format', fa: 'فرمت فایل'}, value: 'XAVC HS 4K' },
+                { label: {en: 'Record Setting', fa: 'تنظیمات ضبط'}, value: '24p 100M 4:2:2 10bit' },
+                { label: {en: 'Shutter Speed', fa: 'سرعت شاتر'}, value: '1/50 sec' },
+                { label: {en: 'Aperture', fa: 'دیافراگم'}, value: 'f1.8 (use ND filter)' },
+                { label: {en: 'ISO', fa: 'ایزو'}, value: '800 (S-Log3) / Auto' },
+                { label: {en: 'Picture Profile', fa: 'پروفایل تصویر'}, value: 'PP8 (S-Log3)' }
             ]
         },
         smooth: {
-            title: 'Smooth Motion (60p)',
+            title: {en: 'Smooth Motion (60p)', fa: 'حرکت روان (۶۰p)'},
             settings: [
-                { label: 'File Format', value: 'XAVC HS 4K' },
-                { label: 'Record Setting', value: '60p 200M 4:2:2 10bit' },
-                { label: 'Shutter Speed', value: '1/125 sec' },
+                { label: {en: 'File Format', fa: 'فرمت فایل'}, value: 'XAVC HS 4K' },
+                { label: {en: 'Record Setting', fa: 'تنظیمات ضبط'}, value: '60p 200M 4:2:2 10bit' },
+                { label: {en: 'Shutter Speed', fa: 'سرعت شاتر'}, value: '1/125 sec' },
                 { label: 'Aperture', value: 'As low as possible' },
                 { label: 'ISO', value: 'Auto / Manual Low' },
                 { label: 'Picture Profile', value: 'PP11 (S-Cinetone)' }
             ]
         },
         slowmo: {
-            title: 'Slow Motion (120p)',
+            title: {en: 'Slow Motion (120p)', fa: 'حرکت آهسته (۱۲۰p)'},
             settings: [
-                { label: 'File Format', value: 'XAVC S HD' },
-                { label: 'Record Setting', value: '120p 100M 4:2:0 8bit' },
-                { label: 'Shutter Speed', value: '1/250 sec' },
+                { label: {en: 'File Format', fa: 'فرمت فایل'}, value: 'XAVC S HD' },
+                { label: {en: 'Record Setting', fa: 'تنظیمات ضبط'}, value: '120p 100M 4:2:0 8bit' },
+                { label: {en: 'Shutter Speed', fa: 'سرعت شاتر'}, value: '1/250 sec' },
                 { label: 'Aperture', value: 'As low as possible' },
                 { label: 'ISO', value: 'Auto / 800 (S-Log3)' },
                 { label: 'Picture Profile', value: 'PP8 or PP11' }
@@ -309,31 +994,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const lightingMoodData = {
         friendly: {
-            name: 'Warm & Friendly',
+            name: {en: 'Warm & Friendly', fa: 'گرم و دوستانه'},
             diagram: `<div class="w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center text-yellow-900 font-bold">Subject</div>
                       <div class="absolute top-0 left-0 text-center"><div class="w-8 h-8 bg-stone-700 text-white text-xs rounded-full flex items-center justify-center">Key</div><span class="text-xs">45°</span></div>
                       <div class="absolute top-0 right-0 text-center"><div class="w-6 h-6 bg-stone-500 text-white text-xs rounded-full flex items-center justify-center">Fill</div><span class="text-xs">Soft</span></div>
                       <div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center"><div class="w-6 h-6 bg-stone-500 text-white text-xs rounded-full flex items-center justify-center">BG</div><span class="text-xs">Back</span></div>`,
-            description: "Uses soft key light, dim fill, and a backlight. Creates soft shadows and inviting tones, perfect for interviews and testimonials."
+            description: {en: "Uses soft key light, dim fill, and a backlight. Creates soft shadows and inviting tones, perfect for interviews and testimonials.", fa: "از نور کلیدی نرم، نور پرکننده کم‌رنگ و نور پس‌زمینه استفاده می‌کند. سایه‌های نرم و رنگ‌های دلپذیر ایجاد می‌کند که برای مصاحبه‌ها و توصیف‌ها عالی است."}
         },
         dramatic: {
-            name: 'Dramatic & Intense',
+            name: {en: 'Dramatic & Intense', fa: 'دراماتیک و شدید'},
             diagram: `<div class="w-24 h-24 bg-blue-400 rounded-full flex items-center justify-center text-blue-900 font-bold">Subject</div>
                       <div class="absolute top-0 left-0 text-center"><div class="w-10 h-10 bg-stone-800 text-white text-xs rounded-full flex items-center justify-center">Key</div><span class="text-xs">Hard</span></div>
                       <div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center"><div class="w-6 h-6 bg-stone-500 text-white text-xs rounded-full flex items-center justify-center">BG</div><span class="text-xs">Rim</span></div>`,
-            description: "Uses a strong, hard key light with little to no fill. Creates high contrast and sharp shadows, ideal for conveying seriousness or mystery."
+            description: {en: "Uses a strong, hard key light with little to no fill. Creates high contrast and sharp shadows, ideal for conveying seriousness or mystery.", fa: "از نور کلیدی قوی و سخت با نور پرکننده کم یا بدون نور پرکننده استفاده می‌کند. کنتراست بالا و سایه‌های تیز ایجاد می‌کند که برای انتقال جدیت یا رمز و راز ایده‌آل است."}
         },
         sadness: {
-            name: 'Sadness',
+            name: {en: 'Sadness', fa: 'غم و اندوه'},
             diagram: `<div class="w-24 h-24 bg-gray-400 rounded-full flex items-center justify-center text-gray-900 font-bold">Subject</div>
                       <div class="absolute top-1/2 -translate-y-1/2 left-0 text-center"><div class="w-8 h-8 bg-stone-600 text-white text-xs rounded-full flex items-center justify-center">Side</div><span class="text-xs">Dim</span></div>`,
-            description: "Relies on side-lighting. This highlights texture and facial features like tears, conveying despair or intense sorrow effectively."
+            description: {en: "Relies on side-lighting. This highlights texture and facial features like tears, conveying despair or intense sorrow effectively.", fa: "متکی بر نورپردازی جانبی است. این کار بافت و ویژگی‌های صورت مانند اشک را برجسته می‌کند و به طور موثر ناامیدی یا غم شدید را منتقل می‌کند."}
         },
         mystery: {
-            name: 'Mystery & Suspense',
+            name: {en: 'Mystery & Suspense', fa: 'رمز و راز و تعلیق'},
             diagram: `<div class="w-24 h-24 bg-purple-400 rounded-full flex items-center justify-center text-purple-900 font-bold">Subject</div>
                        <div class="absolute top-0 left-0 text-center"><div class="w-10 h-10 bg-stone-800 text-white text-xs rounded-full flex items-center justify-center">Key</div><span class="text-xs">Low Key</span></div>`,
-            description: "Employs Low Key lighting, which minimizes or eliminates the fill light. This creates deep, dramatic shadows perfect for a scary or moody atmosphere."
+            description: {en: "Employs Low Key lighting, which minimizes or eliminates the fill light. This creates deep, dramatic shadows perfect for a scary or moody atmosphere.", fa: "از نورپردازی لو کی (Low Key) استفاده می‌کند که نور پرکننده را به حداقل می‌رساند یا حذف می‌کند. این کار سایه‌های عمیق و دراماتیک ایجاد می‌کند که برای فضایی ترسناک یا تیره و تار عالی است."}
         }
     };
 
@@ -369,6 +1054,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightingDisplay = document.getElementById('lighting-display');
     const resourceFiltersContainer = document.getElementById('resource-filters');
     const resourceGrid = document.getElementById('resource-grid');
+    const langEnBtn = document.getElementById('lang-en');
+    const langFaBtn = document.getElementById('lang-fa');
 
     function switchTab(targetId) {
         contentSections.forEach(section => {
@@ -383,7 +1070,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = cameraSettingsData[scenario];
         settingsDisplay.innerHTML = data.settings.map(s => `
             <div>
-                <div class="text-xs text-stone-400">${s.label}</div>
+                <div class="text-xs text-stone-400">${s.label[currentLang]}</div>
                 <div class="text-lg font-semibold">${s.value}</div>
             </div>
         `).join('');
@@ -394,8 +1081,8 @@ document.addEventListener('DOMContentLoaded', () => {
         lightingDisplay.innerHTML = `
             <div class="relative w-48 h-48 mx-auto flex items-center justify-center">${data.diagram}</div>
             <div>
-                <h4 class="text-xl font-semibold mb-2 text-stone-800">${data.name}</h4>
-                <p class="text-stone-600">${data.description}</p>
+                <h4 class="text-xl font-semibold mb-2 text-stone-800">${data.name[currentLang]}</h4>
+                <p class="text-stone-600">${data.description[currentLang]}</p>
             </div>`;
         
         document.querySelectorAll('#lighting-moods button').forEach(button => {
@@ -414,7 +1101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.className = 'resource-card bg-white p-4 rounded-lg shadow-md border border-stone-200 block';
             card.innerHTML = `
                 <h4 class="font-semibold text-stone-800">${resource.name}</h4>
-                <p class="text-sm text-stone-500">${resource.category}</p>
+                <p class="text-sm text-stone-500">${translations[currentLang]['filter' + resource.category.replace(/\s/g, '')] || resource.category}</p>
             `;
             resourceGrid.appendChild(card);
         });
@@ -425,25 +1112,26 @@ document.addEventListener('DOMContentLoaded', () => {
             button.addEventListener('click', () => switchTab(button.dataset.target));
         });
 
-        scenarioSelect.addEventListener('change', (e) => updateCameraSettings(e.target.value));
-        updateCameraSettings('cinematic');
+        langEnBtn.addEventListener('click', () => setLanguage('en'));
+        langFaBtn.addEventListener('click', () => setLanguage('fa'));
 
+        scenarioSelect.addEventListener('change', (e) => updateCameraSettings(e.target.value));
+        
         Object.keys(lightingMoodData).forEach(key => {
             const mood = lightingMoodData[key];
             const button = document.createElement('button');
             button.className = 'btn-filter px-4 py-2 text-sm font-medium text-stone-700 bg-white border border-stone-300 rounded-full hover:bg-stone-100 transition';
-            button.textContent = mood.name;
+            button.textContent = mood.name[currentLang]; // Set initial text based on currentLang
             button.dataset.mood = key;
             button.addEventListener('click', () => updateLightingMood(key));
             lightingMoodsContainer.appendChild(button);
         });
-        updateLightingMood('friendly');
-
+        
         const categories = ['All', ...new Set(resourcesData.map(r => r.category))];
         categories.forEach(category => {
             const button = document.createElement('button');
             button.className = 'btn-filter px-4 py-2 text-sm font-medium text-stone-700 bg-white border border-stone-300 rounded-full hover:bg-stone-100 transition';
-            button.textContent = category;
+            button.textContent = translations[currentLang]['filter' + category.replace(/\s/g, '')] || category; // Set initial text
             button.dataset.filter = category;
             button.addEventListener('click', () => {
                  document.querySelectorAll('#resource-filters button').forEach(btn => btn.classList.remove('active'));
@@ -452,22 +1140,20 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             resourceFiltersContainer.appendChild(button);
         });
-        resourceFiltersContainer.querySelector('button').classList.add('active');
-        renderResources();
         
         const ctx = document.getElementById('micChart').getContext('2d');
-        new Chart(ctx, {
+        window.micChartInstance = new Chart(ctx, { // Store chart instance globally
             type: 'bar',
             data: {
                 labels: ['Lavalier', 'Shotgun', 'Dynamic', 'Condenser'],
                 datasets: [{
-                    label: 'Directionality (Lower is wider)',
+                    label: translations[currentLang].micComparisonTitle.split(':')[0], // Label based on current language
                     data: [3, 8, 4, 6],
                     backgroundColor: 'rgba(202, 138, 4, 0.6)',
                     borderColor: 'rgba(161, 98, 7, 1)',
                     borderWidth: 1
                 }, {
-                    label: 'Sensitivity (Higher is more sensitive)',
+                    label: translations[currentLang].micComparisonTitle.split(':')[1]?.trim() || 'Sensitivity', // Label based on current language
                     data: [7, 6, 4, 9],
                     backgroundColor: 'rgba(120, 113, 108, 0.6)',
                     borderColor: 'rgba(87, 83, 78, 1)',
@@ -481,7 +1167,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     y: { beginAtZero: true, max: 10 }
                 },
                 plugins: {
-                    title: { display: true, text: 'Relative Microphone Characteristics' },
+                    title: { display: true, text: translations[currentLang].micComparisonTitle },
                     tooltip: {
                         callbacks: {
                             label: function(context) {
@@ -503,6 +1189,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
+
+        // Initial content rendering based on currentLang
+        setLanguage(currentLang);
+        updateCameraSettings('cinematic');
+        updateLightingMood('friendly');
+        resourceFiltersContainer.querySelector('button').classList.add('active');
+        renderResources();
     }
 
     init();
