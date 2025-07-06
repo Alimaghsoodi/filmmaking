@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Filmmaker's Ascent: Interactive Pathway</title>
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The SPA is structured as a "Filmmaker's Journey" with five main, non-linear stages accessible via top navigation: Foundation (Pre-Production), The Craft (Production), The Cut (Post-Production), The Launch (Growth), and The Library (Resources). This thematic, task-oriented structure was chosen over a linear report layout to enhance usability. It allows users to jump directly to the topic most relevant to their current learning need, fostering exploration and non-linear learning. Key interactions include a camera settings simulator, an interactive lighting-for-mood explorer, and a filterable resource database, all designed to transform passive reading into active engagement and practical application of the report's concepts. -->
+    <!-- Visualization & Content Choices: 
+        1. Report Info: Table of "Sony A7C II Recommended Video Settings". Goal: Make camera settings practical and easy to look up. Viz/Method: An interactive "Camera Settings Simulator" panel (HTML/CSS/JS). Interaction: User selects a shooting scenario from a dropdown, and the panel updates with the exact settings. Justification: This is more engaging and memorable than a static table, mimicking a real-world tool. Library/Method: Vanilla JS.
+        2. Report Info: Table of "Cinematic Lighting Techniques for Mood". Goal: Demonstrate the link between light and emotion. Viz/Method: Interactive cards with simple HTML/CSS diagrams. Interaction: Clicking a mood (e.g., "Dramatic") reveals the corresponding lighting setup diagram and description. Justification: Makes abstract concepts visual and easy to compare. Library/Method: Vanilla JS.
+        3. Report Info: Lists of learning resources. Goal: Create a usable database of external links. Viz/Method: A filterable grid of resource cards. Interaction: User clicks category buttons (e.g., "Editing", "VFX") to instantly filter the list. Justification: Vastly improves on the long, unstructured list in the report, providing immediate utility. Library/Method: Vanilla JS. 
+        4. Report Info: "Microphone Types". Goal: Compare microphone characteristics. Viz/Method: A simple bar chart. Interaction: Hovering over bars shows details. Justification: Provides a quick visual comparison of a key audio concept. Library/Method: Chart.js.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .nav-active { color: #ca8a04; border-bottom-color: #ca8a04; }
+        .nav-item { transition: all 0.2s ease-in-out; }
+        .content-section { display: none; }
+        .content-section.active { display: block; }
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 350px; max-height: 450px; }
+        @media (max-width: 768px) { .chart-container { height: 300px; } }
+        .resource-card { transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+        .resource-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
+        .btn-filter.active { background-color: #a16207; color: white; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-stone-900 mb-2">The Filmmaker's Ascent</h1>
+            <p class="text-lg text-stone-600">An Interactive Pathway to Cinematic & Advertising Mastery</p>
+        </header>
+
+        <nav class="flex justify-center border-b border-stone-200 mb-8">
+            <button class="nav-item nav-active py-4 px-4 md:px-6 text-sm md:text-base font-medium text-stone-500 hover:text-yellow-700 border-b-2 border-transparent" data-target="foundation">Foundation</button>
+            <button class="nav-item py-4 px-4 md:px-6 text-sm md:text-base font-medium text-stone-500 hover:text-yellow-700 border-b-2 border-transparent" data-target="craft">The Craft</button>
+            <button class="nav-item py-4 px-4 md:px-6 text-sm md:text-base font-medium text-stone-500 hover:text-yellow-700 border-b-2 border-transparent" data-target="cut">The Cut</button>
+            <button class="nav-item py-4 px-4 md:px-6 text-sm md:text-base font-medium text-stone-500 hover:text-yellow-700 border-b-2 border-transparent" data-target="launch">The Launch</button>
+            <button class="nav-item py-4 px-4 md:px-6 text-sm md:text-base font-medium text-stone-500 hover:text-yellow-700 border-b-2 border-transparent" data-target="library">The Library</button>
+        </nav>
+
+        <main>
+            <!-- Foundation Section -->
+            <section id="foundation" class="content-section active space-y-12">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-4 text-stone-900">I. Foundation: The Pillars of Visual Storytelling</h2>
+                    <p class="text-stone-600">This section covers the essential pre-production principles that form the bedrock of any great film or advertisement. Before you even touch your camera, understanding narrative, composition, and the basics of light and sound is crucial. Explore these interactive elements to build a strong theoretical foundation for your practical work.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4 text-stone-800">Crafting Compelling Narratives</h3>
+                        <p class="text-stone-600 mb-4">Filmmaking is storytelling. Every shot must serve the narrative. For short films and ads, focus on a singular idea with a clear setup, conflict, and resolution. A strong story, whether for art or commerce, connects emotionally with the audience and builds trust.</p>
+                        <p class="text-stone-600">Pre-production is your most powerful tool. A detailed script, storyboard, and location scout will prevent costly mistakes later. The goal is to get it right in-camera, not "fix it in post."</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                        <h4 class="text-xl font-semibold mb-3">The Pre-Production Workflow</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-stone-600">
+                            <li><strong>Concept & Purpose:</strong> Define your core message and target audience.</li>
+                            <li><strong>Scriptwriting:</strong> Detail dialogue, actions, and visual cues.</li>
+                            <li><strong>Storyboarding:</strong> Visualize each shot, angle, and movement.</li>
+                            <li><strong>Location Scouting:</strong> Find and secure locations, checking for light and sound issues.</li>
+                            <li><strong>Gear Preparation:</strong> Check all camera, lighting, and audio equipment.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-center text-stone-800">Mastering the Frame: Composition</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                            <h4 class="font-semibold text-lg mb-2">Rule of Thirds</h4>
+                            <div class="w-full aspect-video bg-stone-100 grid grid-cols-3 grid-rows-3 gap-1 mb-3 rounded">
+                                <div class="border-r border-dashed border-stone-400"></div><div class="border-r border-dashed border-stone-400"></div><div></div>
+                                <div class="border-r border-dashed border-stone-400 border-t"></div><div class="border-r border-dashed border-stone-400 border-t"></div><div class="border-t border-dashed border-stone-400"></div>
+                                <div class="border-r border-dashed border-stone-400 border-t"></div><div class="border-r border-dashed border-stone-400 border-t"></div><div class="border-t border-dashed border-stone-400"></div>
+                                <div class="absolute top-1/3 left-1/3 w-6 h-6 bg-yellow-500 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+                            </div>
+                            <p class="text-stone-600 text-sm">Place key subjects at the intersections of a 3x3 grid for a more balanced and dynamic composition.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                            <h4 class="font-semibold text-lg mb-2">Leading Lines</h4>
+                            <div class="w-full aspect-video bg-stone-100 relative overflow-hidden mb-3 rounded">
+                                <div class="absolute w-full h-1 bg-yellow-500 top-1/2 -translate-y-1/2" style="clip-path: polygon(0 0, 100% 40%, 100% 60%, 0 100%);"></div>
+                                <div class="absolute w-1 h-full bg-yellow-500 left-1/4" style="clip-path: polygon(40% 0, 60% 0, 100% 100%, 0% 100%);"></div>
+                            </div>
+                            <p class="text-stone-600 text-sm">Use natural lines in the scene (roads, fences, rivers) to guide the viewer's eye towards the subject.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                            <h4 class="font-semibold text-lg mb-2">Depth & Perspective</h4>
+                            <div class="w-full aspect-video bg-stone-100 relative mb-3 rounded p-4">
+                               <div class="absolute bottom-4 left-4 w-12 h-12 bg-yellow-500 opacity-90 rounded"></div>
+                               <div class="absolute top-1/2 left-1/2 w-8 h-8 bg-yellow-500 opacity-70 rounded -translate-x-1/2 -translate-y-1/2"></div>
+                               <div class="absolute top-4 right-4 w-4 h-4 bg-yellow-500 opacity-50 rounded"></div>
+                            </div>
+                            <p class="text-stone-600 text-sm">Incorporate foreground, midground, and background elements to create a sense of three-dimensional space.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- The Craft Section -->
+            <section id="craft" class="content-section space-y-12">
+                 <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-4 text-stone-900">II. The Craft: Mastering Your Gear</h2>
+                    <p class="text-stone-600">This is the production phase, where theory meets practice. Here, we delve into the technical settings of your Sony A7C II and 50mm lens. Use the interactive tools below to understand how different settings create specific looks, how lighting shapes mood, and how to choose the right microphone for clear audio.</p>
+                </div>
+                
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-stone-200">
+                    <h3 class="text-2xl font-semibold mb-6 text-center text-stone-800">Sony A7C II: Interactive Settings Simulator</h3>
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                             <label for="scenario-select" class="block text-sm font-medium text-stone-700 mb-2">Select a Shooting Scenario:</label>
+                             <select id="scenario-select" class="w-full p-2 border border-stone-300 rounded-md bg-white focus:ring-yellow-500 focus:border-yellow-500">
+                                 <option value="cinematic">Cinematic Look (24p)</option>
+                                 <option value="smooth">Smooth Motion (60p)</option>
+                                 <option value="slowmo">Slow Motion (120p)</option>
+                             </select>
+                             <p class="text-xs text-stone-500 mt-2">Choose a common scenario to see the recommended camera settings. This tool helps translate the technical data from the report into a practical, easy-to-use format.</p>
+                        </div>
+                        <div id="settings-display" class="bg-stone-800 text-white p-6 rounded-lg grid grid-cols-2 gap-4">
+                            <!-- JS will populate this -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-stone-200">
+                    <h3 class="text-2xl font-semibold mb-6 text-center text-stone-800">Sculpting with Light: Mood Creator</h3>
+                    <div id="lighting-moods" class="flex justify-center flex-wrap gap-2 mb-6">
+                        <!-- JS will populate mood buttons -->
+                    </div>
+                    <div id="lighting-display" class="grid md:grid-cols-2 gap-8 items-center bg-stone-100 p-6 rounded-lg">
+                       <!-- JS will populate this -->
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-stone-200">
+                    <h3 class="text-2xl font-semibold mb-6 text-center text-stone-800">Audio Essentials: Microphone Comparison</h3>
+                    <p class="text-center text-stone-600 max-w-2xl mx-auto mb-6">Audio quality is non-negotiable. Poor sound will ruin great visuals. This chart compares the core characteristics of common microphone types to help you choose the right tool for the job.</p>
+                    <div class="chart-container">
+                        <canvas id="micChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- The Cut Section -->
+            <section id="cut" class="content-section space-y-12">
+                 <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-4 text-stone-900">III. The Cut: Post-Production Mastery</h2>
+                    <p class="text-stone-600">Editing is where your story truly comes to life. This phase involves assembling your footage, correcting color, designing sound, and adding graphics. The workflow below outlines the key steps, and the software comparison will help you choose the right free tools to get started.</p>
+                </div>
+                 <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-stone-200">
+                    <h3 class="text-2xl font-semibold mb-6 text-center text-stone-800">The Post-Production Workflow</h3>
+                    <div class="relative w-full overflow-x-auto">
+                        <div class="flex items-center justify-between min-w-[700px]">
+                            <div class="text-center w-1/5">
+                                <div class="bg-yellow-400 text-yellow-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-2xl">1</div>
+                                <h4 class="font-semibold">Organize</h4>
+                                <p class="text-xs text-stone-500">Import & sort footage</p>
+                            </div>
+                            <div class="flex-1 h-0.5 bg-stone-300"></div>
+                             <div class="text-center w-1/5">
+                                <div class="bg-yellow-400 text-yellow-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-2xl">2</div>
+                                <h4 class="font-semibold">Assemble</h4>
+                                <p class="text-xs text-stone-500">Create a rough cut</p>
+                            </div>
+                            <div class="flex-1 h-0.5 bg-stone-300"></div>
+                            <div class="text-center w-1/5">
+                                <div class="bg-yellow-400 text-yellow-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-2xl">3</div>
+                                <h4 class="font-semibold">Refine</h4>
+                                <p class="text-xs text-stone-500">Color, sound, graphics</p>
+                            </div>
+                            <div class="flex-1 h-0.5 bg-stone-300"></div>
+                            <div class="text-center w-1/5">
+                                <div class="bg-yellow-400 text-yellow-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-2xl">4</div>
+                                <h4 class="font-semibold">Finalize</h4>
+                                <p class="text-xs text-stone-500">Transitions & captions</p>
+                            </div>
+                             <div class="flex-1 h-0.5 bg-stone-300"></div>
+                             <div class="text-center w-1/5">
+                                <div class="bg-yellow-400 text-yellow-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-2xl">5</div>
+                                <h4 class="font-semibold">Export</h4>
+                                <p class="text-xs text-stone-500">Review & deliver</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-center text-stone-800">Choosing Your Editing Software (Free Options)</h3>
+                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                         <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                             <h4 class="font-semibold text-lg mb-2">DaVinci Resolve</h4>
+                             <p class="text-stone-600 text-sm">The industry standard for color grading, with powerful editing, audio (Fairlight), and VFX (Fusion) tools included for free. Steep learning curve but incredibly capable.</p>
+                             <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-medium mt-3 px-2.5 py-0.5 rounded-full">Best for Professionals</span>
+                         </div>
+                         <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                             <h4 class="font-semibold text-lg mb-2">CapCut</h4>
+                             <p class="text-stone-600 text-sm">Extremely user-friendly and accessible, with a surprising number of advanced features. Great for quick edits, social media content, and learning the basics.</p>
+                             <span class="inline-block bg-green-100 text-green-800 text-xs font-medium mt-3 px-2.5 py-0.5 rounded-full">Best for Beginners</span>
+                         </div>
+                         <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                             <h4 class="font-semibold text-lg mb-2">Kdenlive</h4>
+                             <p class="text-stone-600 text-sm">A free, open-source, and cross-platform editor that is feature-rich. A good middle ground between simplicity and professional power.</p>
+                             <span class="inline-block bg-blue-100 text-blue-800 text-xs font-medium mt-3 px-2.5 py-0.5 rounded-full">Best for Hobbyists</span>
+                         </div>
+                     </div>
+                </div>
+
+            </section>
+
+            <!-- The Launch Section -->
+            <section id="launch" class="content-section space-y-12">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-4 text-stone-900">IV. The Launch: Distribution & Professional Growth</h2>
+                    <p class="text-stone-600">A great video is useless if no one sees it. This section focuses on getting your work in front of the right audience and building your professional brand. Learn how to distribute your content effectively and create a portfolio that attracts clients and collaborators.</p>
+                </div>
+                 <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                        <h3 class="text-2xl font-semibold mb-4 text-stone-800">Building Your Presence</h3>
+                        <ul class="space-y-4">
+                           <li>
+                               <h4 class="font-semibold">Portfolio First</h4>
+                               <p class="text-stone-600 text-sm">Showcase only your best work. Quality over quantity. Tell a story with your projects and demonstrate your unique style.</p>
+                           </li>
+                           <li>
+                               <h4 class="font-semibold">Professional Website</h4>
+                               <p class="text-stone-600 text-sm">Your digital storefront. It should be clean, fast, mobile-friendly, and feature a compelling demo reel on the homepage.</p>
+                           </li>
+                           <li>
+                               <h4 class="font-semibold">Strategic Social Media</h4>
+                               <p class="text-stone-600 text-sm">Use Instagram, YouTube, and especially LinkedIn to share behind-the-scenes content, engage with the community, and connect with decision-makers.</p>
+                           </li>
+                        </ul>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
+                         <h3 class="text-2xl font-semibold mb-4 text-stone-800">Distribution Strategy</h3>
+                         <ol class="list-decimal list-inside space-y-2 text-stone-600">
+                             <li><strong>Platform Selection:</strong> Choose channels where your audience lives (YouTube, Vimeo, Instagram, etc.).</li>
+                             <li><strong>Formatting:</strong> Optimize resolution, aspect ratio, and file size for each platform.</li>
+                             <li><strong>Metadata (SEO):</strong> Craft keyword-rich titles, descriptions, and tags. Add captions!</li>
+                             <li><strong>Promotion:</strong> Create eye-catching thumbnails and short trailers to generate buzz.</li>
+                             <li><strong>Analytics:</strong> Track performance (views, engagement) to refine your future strategy.</li>
+                         </ol>
+                     </div>
+                 </div>
+            </section>
+
+            <!-- Library Section -->
+            <section id="library" class="content-section space-y-12">
+                 <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-4 text-stone-900">V. The Library: Curated Learning Resources</h2>
+                    <p class="text-stone-600">The journey to mastery is continuous. This library contains a curated list of the best free resources—from YouTube tutorials to online courses—mentioned in the original report. Use the filters to quickly find what you need to learn next.</p>
+                </div>
+                <div id="resource-filters" class="flex justify-center flex-wrap gap-2 mb-8">
+                    <!-- JS will populate filters -->
+                </div>
+                <div id="resource-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- JS will populate resources -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const cameraSettingsData = {
+        cinematic: {
+            title: 'Cinematic Look (24p)',
+            settings: [
+                { label: 'File Format', value: 'XAVC HS 4K' },
+                { label: 'Record Setting', value: '24p 100M 4:2:2 10bit' },
+                { label: 'Shutter Speed', value: '1/50 sec' },
+                { label: 'Aperture', value: 'f1.8 (use ND filter)' },
+                { label: 'ISO', value: '800 (S-Log3) / Auto' },
+                { label: 'Picture Profile', value: 'PP8 (S-Log3)' }
+            ]
+        },
+        smooth: {
+            title: 'Smooth Motion (60p)',
+            settings: [
+                { label: 'File Format', value: 'XAVC HS 4K' },
+                { label: 'Record Setting', value: '60p 200M 4:2:2 10bit' },
+                { label: 'Shutter Speed', value: '1/125 sec' },
+                { label: 'Aperture', value: 'As low as possible' },
+                { label: 'ISO', value: 'Auto / Manual Low' },
+                { label: 'Picture Profile', value: 'PP11 (S-Cinetone)' }
+            ]
+        },
+        slowmo: {
+            title: 'Slow Motion (120p)',
+            settings: [
+                { label: 'File Format', value: 'XAVC S HD' },
+                { label: 'Record Setting', value: '120p 100M 4:2:0 8bit' },
+                { label: 'Shutter Speed', value: '1/250 sec' },
+                { label: 'Aperture', value: 'As low as possible' },
+                { label: 'ISO', value: 'Auto / 800 (S-Log3)' },
+                { label: 'Picture Profile', value: 'PP8 or PP11' }
+            ]
+        }
+    };
+
+    const lightingMoodData = {
+        friendly: {
+            name: 'Warm & Friendly',
+            diagram: `<div class="w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center text-yellow-900 font-bold">Subject</div>
+                      <div class="absolute top-0 left-0 text-center"><div class="w-8 h-8 bg-stone-700 text-white text-xs rounded-full flex items-center justify-center">Key</div><span class="text-xs">45°</span></div>
+                      <div class="absolute top-0 right-0 text-center"><div class="w-6 h-6 bg-stone-500 text-white text-xs rounded-full flex items-center justify-center">Fill</div><span class="text-xs">Soft</span></div>
+                      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center"><div class="w-6 h-6 bg-stone-500 text-white text-xs rounded-full flex items-center justify-center">BG</div><span class="text-xs">Back</span></div>`,
+            description: "Uses soft key light, dim fill, and a backlight. Creates soft shadows and inviting tones, perfect for interviews and testimonials."
+        },
+        dramatic: {
+            name: 'Dramatic & Intense',
+            diagram: `<div class="w-24 h-24 bg-blue-400 rounded-full flex items-center justify-center text-blue-900 font-bold">Subject</div>
+                      <div class="absolute top-0 left-0 text-center"><div class="w-10 h-10 bg-stone-800 text-white text-xs rounded-full flex items-center justify-center">Key</div><span class="text-xs">Hard</span></div>
+                      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center"><div class="w-6 h-6 bg-stone-500 text-white text-xs rounded-full flex items-center justify-center">BG</div><span class="text-xs">Rim</span></div>`,
+            description: "Uses a strong, hard key light with little to no fill. Creates high contrast and sharp shadows, ideal for conveying seriousness or mystery."
+        },
+        sadness: {
+            name: 'Sadness',
+            diagram: `<div class="w-24 h-24 bg-gray-400 rounded-full flex items-center justify-center text-gray-900 font-bold">Subject</div>
+                      <div class="absolute top-1/2 -translate-y-1/2 left-0 text-center"><div class="w-8 h-8 bg-stone-600 text-white text-xs rounded-full flex items-center justify-center">Side</div><span class="text-xs">Dim</span></div>`,
+            description: "Relies on side-lighting. This highlights texture and facial features like tears, conveying despair or intense sorrow effectively."
+        },
+        mystery: {
+            name: 'Mystery & Suspense',
+            diagram: `<div class="w-24 h-24 bg-purple-400 rounded-full flex items-center justify-center text-purple-900 font-bold">Subject</div>
+                       <div class="absolute top-0 left-0 text-center"><div class="w-10 h-10 bg-stone-800 text-white text-xs rounded-full flex items-center justify-center">Key</div><span class="text-xs">Low Key</span></div>`,
+            description: "Employs Low Key lighting, which minimizes or eliminates the fill light. This creates deep, dramatic shadows perfect for a scary or moody atmosphere."
+        }
+    };
+
+    const resourcesData = [
+        { name: 'Standard Story Co.', category: 'General', url: 'https://www.youtube.com/@StandardStoryCo' },
+        { name: 'D4Darious', category: 'General', url: 'https://www.youtube.com/@D4Darious' },
+        { name: 'StudioBinder', category: 'General', url: 'https://www.youtube.com/@studiobinder' },
+        { name: 'Film Riot', category: 'General', url: 'https://www.youtube.com/@FilmRiot' },
+        { name: 'Aputure', category: 'Lighting', url: 'https://www.youtube.com/@AputureLighting' },
+        { name: 'Wandering DP', category: 'Lighting', url: 'https://www.youtube.com/@WanderingDP' },
+        { name: 'Grip Tips', category: 'Lighting', url: 'https://www.youtube.com/@GripTips' },
+        { name: 'Deity Microphones', category: 'Audio', url: 'https://www.youtube.com/@DeityMicrophonesOfficial' },
+        { name: 'Curtis Judd', category: 'Audio', url: 'https://www.youtube.com/@curtisjudd' },
+        { name: 'Corridor Crew', category: 'VFX', url: 'https://www.youtube.com/@CorridorCrew' },
+        { name: 'Ian Hubert', category: 'VFX', url: 'https://www.youtube.com/@IanHubert' },
+        { name: 'ActionVFX', category: 'VFX', url: 'https://www.actionvfx.com/free-vfx' },
+        { name: 'Film Courage', category: 'Scriptwriting', url: 'https://www.youtube.com/@FilmCourage' },
+        { name: 'Lessons from the Screenplay', category: 'Scriptwriting', url: 'https://www.youtube.com/@LessonsfromtheScreenplay' },
+        { name: 'Thomas Flight', category: 'Analysis', url: 'https://www.youtube.com/@thomasflight' },
+        { name: 'Every Frame a Painting', category: 'Analysis', url: 'https://www.youtube.com/@everyframeapainting' },
+        { name: 'Cullen Kelly', category: 'Color', url: 'https://www.youtube.com/@CullenKelly' },
+        { name: 'iColorist', category: 'Color', url: 'https://icolorist.com/free-video-training/' },
+        { name: 'Blackmagic Design', category: 'Editing', url: 'https://www.blackmagicdesign.com/products/davinciresolve/training' },
+        { name: 'Bring Your Own Laptop', category: 'Editing', url: 'https://www.youtube.com/@BringYourOwnLaptop' },
+        { name: 'Noble Desktop', category: 'Motion Graphics', url: 'https://www.nobledesktop.com/tutorials/motion-graphics' },
+    ];
+
+    const navButtons = document.querySelectorAll('.nav-item');
+    const contentSections = document.querySelectorAll('.content-section');
+    const scenarioSelect = document.getElementById('scenario-select');
+    const settingsDisplay = document.getElementById('settings-display');
+    const lightingMoodsContainer = document.getElementById('lighting-moods');
+    const lightingDisplay = document.getElementById('lighting-display');
+    const resourceFiltersContainer = document.getElementById('resource-filters');
+    const resourceGrid = document.getElementById('resource-grid');
+
+    function switchTab(targetId) {
+        contentSections.forEach(section => {
+            section.classList.toggle('active', section.id === targetId);
+        });
+        navButtons.forEach(button => {
+            button.classList.toggle('nav-active', button.dataset.target === targetId);
+        });
+    }
+
+    function updateCameraSettings(scenario) {
+        const data = cameraSettingsData[scenario];
+        settingsDisplay.innerHTML = data.settings.map(s => `
+            <div>
+                <div class="text-xs text-stone-400">${s.label}</div>
+                <div class="text-lg font-semibold">${s.value}</div>
+            </div>
+        `).join('');
+    }
+    
+    function updateLightingMood(moodKey) {
+        const data = lightingMoodData[moodKey];
+        lightingDisplay.innerHTML = `
+            <div class="relative w-48 h-48 mx-auto flex items-center justify-center">${data.diagram}</div>
+            <div>
+                <h4 class="text-xl font-semibold mb-2 text-stone-800">${data.name}</h4>
+                <p class="text-stone-600">${data.description}</p>
+            </div>`;
+        
+        document.querySelectorAll('#lighting-moods button').forEach(button => {
+             button.classList.toggle('active', button.dataset.mood === moodKey);
+        });
+    }
+
+    function renderResources(filter = 'All') {
+        resourceGrid.innerHTML = '';
+        const filteredData = filter === 'All' ? resourcesData : resourcesData.filter(r => r.category === filter);
+
+        filteredData.forEach(resource => {
+            const card = document.createElement('a');
+            card.href = resource.url;
+            card.target = "_blank";
+            card.className = 'resource-card bg-white p-4 rounded-lg shadow-md border border-stone-200 block';
+            card.innerHTML = `
+                <h4 class="font-semibold text-stone-800">${resource.name}</h4>
+                <p class="text-sm text-stone-500">${resource.category}</p>
+            `;
+            resourceGrid.appendChild(card);
+        });
+    }
+
+    function init() {
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => switchTab(button.dataset.target));
+        });
+
+        scenarioSelect.addEventListener('change', (e) => updateCameraSettings(e.target.value));
+        updateCameraSettings('cinematic');
+
+        Object.keys(lightingMoodData).forEach(key => {
+            const mood = lightingMoodData[key];
+            const button = document.createElement('button');
+            button.className = 'btn-filter px-4 py-2 text-sm font-medium text-stone-700 bg-white border border-stone-300 rounded-full hover:bg-stone-100 transition';
+            button.textContent = mood.name;
+            button.dataset.mood = key;
+            button.addEventListener('click', () => updateLightingMood(key));
+            lightingMoodsContainer.appendChild(button);
+        });
+        updateLightingMood('friendly');
+
+        const categories = ['All', ...new Set(resourcesData.map(r => r.category))];
+        categories.forEach(category => {
+            const button = document.createElement('button');
+            button.className = 'btn-filter px-4 py-2 text-sm font-medium text-stone-700 bg-white border border-stone-300 rounded-full hover:bg-stone-100 transition';
+            button.textContent = category;
+            button.dataset.filter = category;
+            button.addEventListener('click', () => {
+                 document.querySelectorAll('#resource-filters button').forEach(btn => btn.classList.remove('active'));
+                 button.classList.add('active');
+                 renderResources(category)
+            });
+            resourceFiltersContainer.appendChild(button);
+        });
+        resourceFiltersContainer.querySelector('button').classList.add('active');
+        renderResources();
+        
+        const ctx = document.getElementById('micChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Lavalier', 'Shotgun', 'Dynamic', 'Condenser'],
+                datasets: [{
+                    label: 'Directionality (Lower is wider)',
+                    data: [3, 8, 4, 6],
+                    backgroundColor: 'rgba(202, 138, 4, 0.6)',
+                    borderColor: 'rgba(161, 98, 7, 1)',
+                    borderWidth: 1
+                }, {
+                    label: 'Sensitivity (Higher is more sensitive)',
+                    data: [7, 6, 4, 9],
+                    backgroundColor: 'rgba(120, 113, 108, 0.6)',
+                    borderColor: 'rgba(87, 83, 78, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true, max: 10 }
+                },
+                plugins: {
+                    title: { display: true, text: 'Relative Microphone Characteristics' },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += context.parsed.y;
+                                }
+                                if (context.datasetIndex === 0) {
+                                    if(context.dataIndex === 0) label += " (Omni)";
+                                    if(context.dataIndex === 1) label += " (Hypercardioid)";
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    init();
+});
+</script>
+
+</body>
+</html>
